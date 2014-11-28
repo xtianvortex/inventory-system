@@ -23,7 +23,7 @@ import javax.persistence.Table;
 */
 
 @Entity
-@Table(name="USER")
+@Table(name="MONKEY")
 public class Monkey implements Serializable {
     private static final long serialVersionUID = 1L;
     
