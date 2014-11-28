@@ -6,6 +6,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Scanner;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -21,6 +22,7 @@ public class Address implements Serializable {
     @Column(name="STREET_ADDRESS")
     private String address;
     
-    // TODO
+    //todo
+    Scanner scan = new Scanner();
     
 }
