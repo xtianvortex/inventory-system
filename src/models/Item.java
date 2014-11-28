@@ -1,0 +1,140 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package models;
+
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+/**
+ *
+ * @author tan
+ */
+@Entity
+@Table(name="ITEM")
+public class Item implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    
+    private String description;
+    private String name;
+    private int quantity;
+    
+    @ManyToOne
+    private Supplier supplier;
+    
+    @ManyToOne
+    private Category category;
+    
+    private Date dateLastAdded;
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the quantity
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
+     * @return the supplier
+     */
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    /**
+     * @param supplier the supplier to set
+     */
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    /**
+     * @return the category
+     */
+    public int getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    /**
+     * @return the dateLastAdded
+     */
+    public Date getDateLastAdded() {
+        return dateLastAdded;
+    }
+
+    /**
+     * @param dateLastAdded the dateLastAdded to set
+     */
+    public void setDateLastAdded(Date dateLastAdded) {
+        this.dateLastAdded = dateLastAdded;
+    }
+    
+}
