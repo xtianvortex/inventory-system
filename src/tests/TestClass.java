@@ -3,12 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package base;
+package tests;
+
+import junit.framework.TestCase;
 
 /**
  *
  * @author tan
+ * 
+ * This class is just used for testing.
+ * Not supposed to be in final.
  */
-public abstract class PlaceholderClass {
-    
+
+public class TestClass {
+    public static void main(String[] args) {
+        
+    }
 }
