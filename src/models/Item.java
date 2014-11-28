@@ -7,6 +7,8 @@ package models;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,16 +29,24 @@ public class Item implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     
+    @Column(name="DESCRIPTION")
     private String description;
+    
+    @Column(name="NAME")
     private String name;
+    
+    @Column(name="QUANTITY")
     private int quantity;
     
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @Column(name="SUPPLIER")
     private Supplier supplier;
     
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @Column(name="CATEGORY")
     private Category category;
     
+    @Column(name="DATE_LAST_ADDED")
     private Date dateLastAdded;
 
     /**
@@ -110,20 +120,6 @@ public class Item implements Serializable {
     }
 
     /**
-     * @return the category
-     */
-    public int getCategory() {
-        return category;
-    }
-
-    /**
-     * @param category the category to set
-     */
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    /**
      * @return the dateLastAdded
      */
     public Date getDateLastAdded() {
@@ -135,6 +131,20 @@ public class Item implements Serializable {
      */
     public void setDateLastAdded(Date dateLastAdded) {
         this.dateLastAdded = dateLastAdded;
+    }
+
+    /**
+     * @return the category
+     */
+    public Category getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(Category category) {
+        this.category = category;
     }
     
 }
