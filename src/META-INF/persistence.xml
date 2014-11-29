@@ -3,9 +3,9 @@
   <persistence-unit name="InventoryPersistence" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>models.Category</class>
-    <class>models.Item</class>
-    <class>models.Supplier</class>
     <class>models.Monkey</class>
+    <class>models.Supplier</class>
+    <class>models.Item</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/inventory_db"/>
       <property name="javax.persistence.jdbc.user" value=""/>
