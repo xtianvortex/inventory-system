@@ -19,7 +19,7 @@ public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Column(name="STREET_ADDRESS")
-    private String address;
+    private String street;
     
     // TODO
     

@@ -5,7 +5,7 @@
  */
 package tests;
 
-import junit.framework.TestCase;
+import models.factory.ModelFactory;
 
 /**
  *

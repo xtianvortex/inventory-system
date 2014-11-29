@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,7 +49,7 @@ public class Item implements Serializable {
     
     @Column(name="DATE_LAST_ADDED")
     private Date dateLastAdded;
-
+    
     /**
      * @return the id
      */
