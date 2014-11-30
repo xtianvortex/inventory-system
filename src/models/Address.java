@@ -6,7 +6,6 @@
 package models;
 
 import java.io.Serializable;
-import java.util.Scanner;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -33,20 +32,6 @@ public class Address implements Serializable {
     
     @Column(name="COUNTRY_ADDRESS")
     private String country;
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     /**
      * @return the zipcode
@@ -103,8 +88,19 @@ public class Address implements Serializable {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    /**
+     * @return the street
+     */
+    public String getStreet() {
+        return street;
+    }
+
+    /**
+     * @param street the street to set
+     */
+    public void setStreet(String street) {
+        this.street = street;
+    }
     
-    
-    
-   
 }
