@@ -27,8 +27,11 @@ public class Category implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
-    @Column
+    @Column(name="NAME")
     private String name;
+    
+    @Column(name="DESCRIPTION")
+    private String description;
 
     /**
      * @return the name
@@ -56,5 +59,19 @@ public class Category implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
