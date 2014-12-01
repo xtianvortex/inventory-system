@@ -39,8 +39,8 @@ public class Monkey extends Commitable implements Serializable {
     @Column(name="PASSWORD")
     private String password;
     
-    @Column(name= "ADMIN")
-    private boolean admin;
+    @Column(name="HEAD")
+    private boolean head;
 
     /**
      * @return the id
@@ -87,14 +87,14 @@ public class Monkey extends Commitable implements Serializable {
     /**
      * @return the admin
      */
-    public boolean isAdmin() {
-        return admin;
+    public boolean isHead() {
+        return head;
     }
 
     /**
      * @param admin the admin to set
      */
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
+    public void setHead(boolean admin) {
+        this.head = admin;
     }
 }
