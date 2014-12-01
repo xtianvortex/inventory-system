@@ -23,7 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="ITEM")
-public class Item implements Serializable {
+public class Item extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
