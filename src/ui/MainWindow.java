@@ -5,6 +5,8 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author MiriamMarie
@@ -33,18 +35,20 @@ public class MainWindow extends javax.swing.JFrame {
         add_button = new javax.swing.JButton();
         edit_button = new javax.swing.JButton();
         edit_button1 = new javax.swing.JButton();
+        request_button = new javax.swing.JButton();
         list_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         table_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inventory System");
         setName("Inventory System"); // NOI18N
 
         search_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         search_label.setText("Search Item:");
 
-        add_button.setText("Add/Request");
+        add_button.setText("Add");
         add_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_buttonActionPerformed(evt);
@@ -65,6 +69,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        request_button.setText("Request");
+        request_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                request_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout buttons_panelLayout = new javax.swing.GroupLayout(buttons_panel);
         buttons_panel.setLayout(buttons_panelLayout);
         buttons_panelLayout.setHorizontalGroup(
@@ -73,31 +84,35 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buttons_panelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(search_field)
-                            .addComponent(search_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(search_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(buttons_panelLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(edit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edit_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 25, Short.MAX_VALUE)))
+                            .addComponent(edit_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(request_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 25, Short.MAX_VALUE))
+                    .addGroup(buttons_panelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(search_field)))
                 .addContainerGap())
         );
         buttons_panelLayout.setVerticalGroup(
             buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttons_panelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(47, 47, 47)
                 .addComponent(search_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(search_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(add_button)
                 .addGap(18, 18, 18)
-                .addComponent(edit_button)
+                .addComponent(request_button)
                 .addGap(18, 18, 18)
                 .addComponent(edit_button1)
+                .addGap(18, 18, 18)
+                .addComponent(edit_button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -124,17 +139,17 @@ public class MainWindow extends javax.swing.JFrame {
             list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(list_panelLayout.createSequentialGroup()
                 .addGroup(list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
-                    .addComponent(table_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+                    .addComponent(table_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         list_panelLayout.setVerticalGroup(
             list_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, list_panelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addComponent(table_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,6 +172,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
+        JFrame test = new AddWindow();
+        test.show();
+        this.setVisible(false);
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
@@ -166,6 +184,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void edit_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_button1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edit_button1ActionPerformed
+
+    private void request_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_request_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_request_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +232,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel list_panel;
+    private javax.swing.JButton request_button;
     private javax.swing.JTextField search_field;
     private javax.swing.JLabel search_label;
     private javax.swing.JLabel table_label;
