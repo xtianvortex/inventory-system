@@ -5,7 +5,8 @@
  */
 package tests;
 
-import models.factory.ModelFactory;
+import javax.swing.JFrame;
+import ui.*;
 
 /**
  *
@@ -17,6 +18,7 @@ import models.factory.ModelFactory;
 
 public class TestClass {
     public static void main(String[] args) {
-        
+        JFrame test = new LoginWindow();
+        test.show();
     }
 }
