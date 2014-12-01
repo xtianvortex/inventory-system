@@ -5,10 +5,29 @@
  */
 package base;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Transient;
+
 /**
  *
  * @author tan
  */
-public abstract class Behavior {
+public abstract class Commitable {
     
+    @Transient
+    protected static EntityManagerFactory emf =
+            Persistence.createEntityManagerFactory("InventoryPersistence");
+    
+    /**
+     * This method commits the object to the database
+     */
+    public void commit(){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(this);
+        em.getTransaction().commit();
+        em.close();
+    }
 }

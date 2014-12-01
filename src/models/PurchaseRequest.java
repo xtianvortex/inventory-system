@@ -21,7 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PURCHASE_REQUEST")
-public class PurchaseRequest implements Serializable {
+public class PurchaseRequest extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
