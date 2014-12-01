@@ -5,6 +5,10 @@
  */
 package tests;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import models.Item;
 import models.factory.ModelFactory;
 
 /**
@@ -17,6 +21,8 @@ import models.factory.ModelFactory;
 
 public class TestClass {
     public static void main(String[] args) {
-        
+        Item item = ModelFactory.createItem();
+        item.setName("New item, very new");
+        item.commit();
     }
 }

@@ -11,3 +11,4 @@ be available at compile time.
 - JDK 1.8
 - EclipseLink (JPA 2.1)
 - JUnit 4.10
+- JDerby
