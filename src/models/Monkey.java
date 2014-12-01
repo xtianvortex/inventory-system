@@ -5,6 +5,7 @@
  */
 package models;
 
+import base.Commitable;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
