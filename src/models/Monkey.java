@@ -7,13 +7,16 @@ package models;
 
 import base.Commitable;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -34,7 +37,7 @@ public class Monkey extends Commitable implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
-    @Column(name="USERNAME")
+    @Column(name="USERNAME", unique=true)
     private String username;
     
     @Column(name="PASSWORD")
@@ -47,6 +50,9 @@ public class Monkey extends Commitable implements Serializable {
     */
     @Column(name="HEAD")
     private boolean head;
+    
+    @Transient
+    private boolean loggedIn;
 
     /**
      * @return the id
@@ -91,7 +97,7 @@ public class Monkey extends Commitable implements Serializable {
     }
 
     /**
-     * @return the admim
+     * @return the admin
      */
     public boolean isHead() {
         return head;
@@ -116,5 +122,28 @@ public class Monkey extends Commitable implements Serializable {
      */
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+    
+    public boolean isAuthenticated(){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        StringBuilder builder = new StringBuilder("SELECT * FROM MONKEY WHERE ID=");
+        builder.append(id);
+        List results = em.createNativeQuery(builder.toString()).getResultList();
+        return !results.isEmpty();
+    }
+
+    /**
+     * @return the loggedIn
+     */
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    /**
+     * @param loggedIn the loggedIn to set
+     */
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 }

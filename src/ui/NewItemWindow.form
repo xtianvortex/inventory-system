@@ -81,15 +81,9 @@
                       <Component id="description_field" min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cancel_button" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="save_button" min="-2" max="-2" attributes="0"/>
-=======
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="save_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cancel_button" alignment="3" min="-2" max="-2" attributes="0"/>
->>>>>>> 075bafdb41d3c3d8518b2d3ae571d6ff8ae8085d
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>

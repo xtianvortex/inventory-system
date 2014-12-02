@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 public abstract class Commitable {
     
     @Transient
-    protected static EntityManagerFactory emf =
+    public static EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("InventoryPersistence");
     
     /**

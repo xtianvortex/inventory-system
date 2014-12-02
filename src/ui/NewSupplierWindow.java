@@ -5,14 +5,17 @@
  */
 package ui;
 
+import base.UI;
 import commands.factory.CommandFactory;
+import java.util.HashMap;
+import java.util.Map;
 import statics.Executor;
 
 /**
  *
  * @author MiriamMarie
  */
-public class NewSupplierWindow extends javax.swing.JFrame {
+public class NewSupplierWindow extends UI {
 
     /**
      * Creates new form NewSupplierWindow
@@ -255,4 +258,12 @@ public class NewSupplierWindow extends javax.swing.JFrame {
     private javax.swing.JTextField zipcode_field;
     private javax.swing.JLabel zipcode_label;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(city_field.getName(), city_field);
+        // TODO
+        return fields;
+    }
 }

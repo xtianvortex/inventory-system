@@ -5,13 +5,11 @@
  */
 package base;
 
-import javax.swing.JFrame;
-
 /**
  *
  * @author tan
  */
 public abstract class Command {
-    protected JFrame uiElements;
+    protected UI elements;
     public abstract void execute();
 }

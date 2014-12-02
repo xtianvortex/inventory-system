@@ -6,7 +6,7 @@
 package commands;
 
 import base.Command;
-import javax.swing.JFrame;
+import base.UI;
 
 /**
  *
@@ -14,8 +14,8 @@ import javax.swing.JFrame;
  */
 public class AddItemCommand extends Command {
     
-    public AddItemCommand(JFrame ui){
-        uiElements = ui;
+    public AddItemCommand(UI ui){
+        elements = ui;
     }
     
     @Override

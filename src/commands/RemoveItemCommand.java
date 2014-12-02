@@ -12,15 +12,15 @@ import base.UI;
  *
  * @author tan
  */
-public class AddSupplierCommand extends Command {
+public class RemoveItemCommand extends Command {
     
-    public AddSupplierCommand(UI ui){
+    public RemoveItemCommand(UI ui){
         elements = ui;
     }
 
     @Override
     public void execute() {
-        // TODO
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

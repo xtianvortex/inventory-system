@@ -32,8 +32,8 @@ public class Category extends Commitable implements Serializable {
     private int id;
     
     @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name="SUBCATEGORY")
-    private String subcategory;
+    @JoinColumn(name="PARENT_CATEGORY")
+    private Category parentCategory;
     
     
     
@@ -86,16 +86,16 @@ public class Category extends Commitable implements Serializable {
     }
 
     /**
-     * @return the subcategory
+     * @return the parentCategory
      */
-    public String getSubcategory() {
-        return subcategory;
+    public Category getParentcategory() {
+        return parentCategory;
     }
 
     /**
-     * @param subcategory the subcategory to set
+     * @param category the parentCategory to set
      */
-    public void setSubcategory(String subcategory) {
-        this.subcategory = subcategory;
+    public void setSubcategory(Category category) {
+        this.parentCategory = category;
     }
 }

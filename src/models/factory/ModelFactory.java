@@ -16,7 +16,6 @@ import models.Supplier;
  * @author tan
  */
 public class ModelFactory {
-    
     /**
      * 
      * @return a new Item object

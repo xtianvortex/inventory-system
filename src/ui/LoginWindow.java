@@ -5,11 +5,12 @@
  */
 package ui;
 
+import base.UI;
 import statics.Executor;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
-import java.awt.Component;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ import javax.swing.JFrame;
  *
  * @author MiriamMarie
  */
-public class LoginWindow extends javax.swing.JFrame {
+public class LoginWindow extends UI {
     
     /**
      * Creates new form Login
@@ -56,6 +57,10 @@ public class LoginWindow extends javax.swing.JFrame {
 
         username_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username_label.setText("Username:");
+
+        username_field.setName("username_field"); // NOI18N
+
+        password_field.setName("password_field"); // NOI18N
 
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
@@ -188,5 +193,13 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(username_field.getName(), username_field);
+        fields.put(password_field.getName(), password_field);
+        return fields;
+    }
 
 }
