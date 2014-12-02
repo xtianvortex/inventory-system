@@ -19,7 +19,7 @@ import ui.LoginWindow;
 
 public class TestClass {
     public static void main(String[] args) {
-        JFrame test = new LoginWindow();
-        test.setVisible(true);
+        JFrame main = new LoginWindow();
+        main.setVisible(true);
     }
 }
