@@ -7,6 +7,7 @@ package commands.factory;
 
 import base.Command;
 import commands.AddItemCommand;
+import commands.AddSupplierCommand;
 import commands.LoginCommand;
 import javax.swing.JFrame;
 
@@ -19,7 +20,7 @@ public class CommandFactory {
     /**
      * 
      * @param ui the UI object to bound this command with.
-     * @return a login command bounded with the UI Elements.
+     * @return a login command bounded with the UI elements.
      */
     public static Command createLoginCommand(JFrame ui){
         return new LoginCommand(ui);
@@ -28,9 +29,20 @@ public class CommandFactory {
     /**
      * 
      * @param ui the UI object to bound this command with.
-     * @return an add item command bounded with the UI Elements.
+     * @return an add item command bounded with the UI elements.
      */
     public static Command createAddItemCommand(JFrame ui){
         return new AddItemCommand(ui);
     }
+    
+    /**
+     * 
+     * @param ui the UI object to bound this command with.
+     * @return an add supplier command bounded with the UI elements
+     */
+    public static Command createAddSupplierCommand(JFrame ui){
+        return new AddSupplierCommand(ui);
+    }
+    
+    
 }

@@ -8,6 +8,9 @@ package ui;
 import statics.Executor;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
+import java.awt.Component;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -17,7 +20,7 @@ import javax.swing.JFrame;
  * @author MiriamMarie
  */
 public class LoginWindow extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Login
      */
@@ -185,4 +188,5 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
+
 }

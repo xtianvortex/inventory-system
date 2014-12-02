@@ -5,6 +5,9 @@
  */
 package ui;
 
+import commands.factory.CommandFactory;
+import statics.Executor;
+
 /**
  *
  * @author MiriamMarie
@@ -16,6 +19,7 @@ public class NewSupplierWindow extends javax.swing.JFrame {
      */
     public NewSupplierWindow() {
         initComponents();
+        Executor.put("addSupplier", CommandFactory.createAddSupplierCommand(this));
     }
 
     /**
