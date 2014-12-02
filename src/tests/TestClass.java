@@ -20,6 +20,6 @@ import ui.LoginWindow;
 public class TestClass {
     public static void main(String[] args) {
         JFrame test = new LoginWindow();
-        test.show();
+        test.setVisible(true);
     }
 }

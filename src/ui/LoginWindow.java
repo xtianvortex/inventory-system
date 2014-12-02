@@ -20,7 +20,6 @@ public class LoginWindow extends javax.swing.JFrame {
      * Creates new form Login
      */
     public LoginWindow() {
-        Executor.put("login", CommandFactory.createLoginCommand(this));
         initComponents();
     }
 
@@ -165,13 +164,19 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginWindow().setVisible(true);
             }
         });
+    }
+    
+    @Override
+    public void setVisible(boolean bool){
+        Executor.put("login", CommandFactory.createLoginCommand(this));
+        super.setVisible(bool);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

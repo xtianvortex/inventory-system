@@ -20,7 +20,7 @@ public class LoginCommand extends Command {
 
     @Override
     public void execute() {
-        // TODO
+        System.out.println("THIS BUTTON WAS PRESSED");
     }
     
 }

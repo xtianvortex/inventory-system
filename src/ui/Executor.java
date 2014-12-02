@@ -14,11 +14,7 @@ import java.util.Map;
  * @author tan
  */
 public class Executor {
-    private static Map<String, Command> commands;
-    
-    public Executor(){
-        commands = new HashMap<>();
-    }
+    private static Map<String, Command> commands = new HashMap<>();
     
     public static void put(String key, Command value){
         commands.put(key, value);
@@ -27,7 +23,7 @@ public class Executor {
     public static void execute(String key) throws ExecutorException{
         Command value = commands.get(key);
         if(value==null)
-            throw new ExecutorException("Executor does not have that command.");
+            throw new ExecutorException("Executor does not have the " + key + " command.");
         value.execute();
     }
     

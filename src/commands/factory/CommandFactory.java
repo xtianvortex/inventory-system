@@ -6,6 +6,7 @@
 package commands.factory;
 
 import base.Command;
+import commands.AddItemCommand;
 import commands.LoginCommand;
 import javax.swing.JFrame;
 
