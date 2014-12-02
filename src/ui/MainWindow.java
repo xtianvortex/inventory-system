@@ -12,7 +12,10 @@ import javax.swing.JFrame;
  * @author MiriamMarie
  */
 public class MainWindow extends javax.swing.JFrame {
-
+    JFrame add = new AddWindow();
+    JFrame remove = new RemoveWindow();
+    JFrame request = new RequestWindow();
+    JFrame edit = new EditWindow();
     /**
      * Creates new form MainWindow
      */
@@ -34,8 +37,9 @@ public class MainWindow extends javax.swing.JFrame {
         search_label = new javax.swing.JLabel();
         add_button = new javax.swing.JButton();
         edit_button = new javax.swing.JButton();
-        edit_button1 = new javax.swing.JButton();
+        remove_button = new javax.swing.JButton();
         request_button = new javax.swing.JButton();
+        exit_button = new javax.swing.JButton();
         list_panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -62,10 +66,10 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        edit_button1.setText("Delete");
-        edit_button1.addActionListener(new java.awt.event.ActionListener() {
+        remove_button.setText("Remove");
+        remove_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_button1ActionPerformed(evt);
+                remove_buttonActionPerformed(evt);
             }
         });
 
@@ -73,6 +77,13 @@ public class MainWindow extends javax.swing.JFrame {
         request_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 request_buttonActionPerformed(evt);
+            }
+        });
+
+        exit_button.setText("Save and Exit");
+        exit_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_buttonActionPerformed(evt);
             }
         });
 
@@ -87,11 +98,12 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(search_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(buttons_panelLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edit_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(request_button, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(edit_button, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(add_button, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(remove_button, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(request_button, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(exit_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 25, Short.MAX_VALUE))
                     .addGroup(buttons_panelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -110,10 +122,12 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(request_button)
                 .addGap(18, 18, 18)
-                .addComponent(edit_button1)
+                .addComponent(remove_button)
                 .addGap(18, 18, 18)
                 .addComponent(edit_button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exit_button)
+                .addGap(20, 20, 20))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -172,22 +186,31 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
-        JFrame test = new AddWindow();
-        test.show();
-        this.setVisible(false);
+        add.show();
+        
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
         // TODO add your handling code here:
+        edit.show();
     }//GEN-LAST:event_edit_buttonActionPerformed
 
-    private void edit_button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_button1ActionPerformed
+    private void remove_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_buttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edit_button1ActionPerformed
+        remove.show();
+        
+    }//GEN-LAST:event_remove_buttonActionPerformed
 
     private void request_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_request_buttonActionPerformed
         // TODO add your handling code here:
+        request.show();
+        
     }//GEN-LAST:event_request_buttonActionPerformed
+
+    private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exit_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,10 +251,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton add_button;
     private javax.swing.JPanel buttons_panel;
     private javax.swing.JButton edit_button;
-    private javax.swing.JButton edit_button1;
+    private javax.swing.JButton exit_button;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel list_panel;
+    private javax.swing.JButton remove_button;
     private javax.swing.JButton request_button;
     private javax.swing.JTextField search_field;
     private javax.swing.JLabel search_label;

@@ -12,7 +12,8 @@ import javax.swing.JFrame;
  * @author MiriamMarie
  */
 public class AddWindow extends javax.swing.JFrame {
-
+    JFrame supplier = new NewSupplierWindow();
+    JFrame item = new NewItemWindow();
     /**
      * Creates new form AddItemWindow
      */
@@ -167,27 +168,22 @@ public class AddWindow extends javax.swing.JFrame {
 
     private void newItem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newItem_buttonActionPerformed
         // TODO add your handling code here:
-        JFrame test = new NewItemWindow();
-        test.show();
+        item.show();
     }//GEN-LAST:event_newItem_buttonActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        JFrame main = new MainWindow();
-        main.show();
+        this.dispose();
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        JFrame main = new MainWindow();
-        main.show();
+        this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void newSupplier_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSupplier_buttonActionPerformed
         // TODO add your handling code here:
-        JFrame supplier = new NewSupplierWindow();
+        
         supplier.show();
     }//GEN-LAST:event_newSupplier_buttonActionPerformed
 

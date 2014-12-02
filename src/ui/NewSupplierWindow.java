@@ -69,8 +69,18 @@ public class NewSupplierWindow extends javax.swing.JFrame {
 
         cancel_button.setText("Cancel");
         cancel_button.setToolTipText("");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         add_button.setText("Add");
+        add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout supplier_panelLayout = new javax.swing.GroupLayout(supplier_panel);
         supplier_panel.setLayout(supplier_panelLayout);
@@ -111,7 +121,7 @@ public class NewSupplierWindow extends javax.swing.JFrame {
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supplier_panelLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(zipcode_label)
-                                                .addGap(18, 18, 18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(zipcode_field, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(city_field))))
                                 .addGap(67, 67, 67))))
@@ -177,6 +187,16 @@ public class NewSupplierWindow extends javax.swing.JFrame {
     private void suppliername_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliername_fieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_suppliername_fieldActionPerformed
+
+    private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_add_buttonActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**
      * @param args the command line arguments

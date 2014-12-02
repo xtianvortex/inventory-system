@@ -5,6 +5,9 @@
  */
 package tests;
 
+import javax.swing.JFrame;
+import ui.LoginWindow;
+
 
 /**
  *
@@ -16,6 +19,8 @@ package tests;
 
 public class TestClass {
     public static void main(String[] args) {
-
+        //System.out.println("something");
+        JFrame main = new LoginWindow();
+        main.setVisible(true);
     }
 }
