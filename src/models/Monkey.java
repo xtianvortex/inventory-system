@@ -8,6 +8,7 @@ package models;
 import base.Commitable;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,11 @@ public class Monkey extends Commitable implements Serializable {
     @Column(name="PASSWORD")
     private String password;
     
+    @Embedded
+    private Contact contact;
+    /*
+    instead of admin it is change to head, because admin is reserved
+    */
     @Column(name="HEAD")
     private boolean head;
 
@@ -85,7 +91,7 @@ public class Monkey extends Commitable implements Serializable {
     }
 
     /**
-     * @return the admin
+     * @return the admim
      */
     public boolean isHead() {
         return head;
@@ -96,5 +102,19 @@ public class Monkey extends Commitable implements Serializable {
      */
     public void setHead(boolean admin) {
         this.head = admin;
+    }
+
+    /**
+     * @return the contact
+     */
+    public Contact getContact() {
+        return contact;
+    }
+
+    /**
+     * @param contact the contact to set
+     */
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }
