@@ -5,7 +5,9 @@
  */
 package ui;
 
+import statics.Executor;
 import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -21,6 +23,7 @@ public class LoginWindow extends javax.swing.JFrame {
      */
     public LoginWindow() {
         initComponents();
+        Executor.put("login", CommandFactory.createLoginCommand(this));
     }
 
     /**
@@ -171,12 +174,6 @@ public class LoginWindow extends javax.swing.JFrame {
                 new LoginWindow().setVisible(true);
             }
         });
-    }
-    
-    @Override
-    public void setVisible(boolean bool){
-        Executor.put("login", CommandFactory.createLoginCommand(this));
-        super.setVisible(bool);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

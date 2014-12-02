@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package statics;
 
 import base.Command;
+import base.Command;
+import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,10 +29,4 @@ public class Executor {
         value.execute();
     }
     
-}
-
-class ExecutorException extends Exception {
-    public ExecutorException(String msg){
-        System.out.println(msg);
-    }
 }

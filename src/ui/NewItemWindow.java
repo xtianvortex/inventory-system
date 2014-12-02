@@ -5,6 +5,9 @@
  */
 package ui;
 
+import commands.factory.CommandFactory;
+import statics.Executor;
+
 /**
  *
  * @author MiriamMarie
@@ -16,6 +19,7 @@ public class NewItemWindow extends javax.swing.JFrame {
      */
     public NewItemWindow() {
         initComponents();
+        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
     }
 
     /**
