@@ -5,6 +5,9 @@
  */
 package ui;
 
+import commands.factory.CommandFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -17,6 +20,7 @@ public class LoginWindow extends javax.swing.JFrame {
      * Creates new form Login
      */
     public LoginWindow() {
+        Executor.put("login", CommandFactory.createLoginCommand(this));
         initComponents();
     }
 
@@ -119,7 +123,11 @@ public class LoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        // TODO add your handling code here:
+        try {
+            Executor.execute("login");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JFrame test = new MainWindow();
         test.show();
         this.setVisible(false);

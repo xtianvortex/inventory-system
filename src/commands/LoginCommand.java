@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tests;
+package commands;
 
+import base.Command;
 import javax.swing.JFrame;
-import ui.LoginWindow;
-
 
 /**
  *
  * @author tan
- * 
- * This class is just used for testing.
- * Not supposed to be in final.
  */
-
-public class TestClass {
-    public static void main(String[] args) {
-        JFrame test = new LoginWindow();
-        test.show();
+public class LoginCommand extends Command {
+    
+    public LoginCommand(JFrame ui){
+        uiElements = ui;
     }
+
+    @Override
+    public void execute() {
+        // TODO
+    }
+    
 }

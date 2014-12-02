@@ -30,4 +30,12 @@ public abstract class Commitable {
         em.getTransaction().commit();
         em.close();
     }
+    
+    /**
+     * This method deletes the matching object
+     * from the database
+     */
+    public void delete(){
+        // TODO
+    }
 }
