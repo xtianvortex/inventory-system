@@ -14,7 +14,7 @@ import ui.LoginWindow;
  * @author tan
  */
 public class Main {
-    private Database inventory;
+    private static Database inventory;
     
     public Main(){
         inventory = new Database();
