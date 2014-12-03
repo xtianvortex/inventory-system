@@ -182,15 +182,13 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="supplier_combo">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="EntityManager em = Database.EMF.createEntityManager();&#xa;TypedQuery suppliers = em.createQuery(&quot;SELECT s FROM Supplier s&quot;, Supplier.class);&#xa;List&lt;Supplier&gt; supplierList = suppliers.getResultList();">
+              <Connection code="new javax.swing.DefaultComboBoxModel(supplierList.toArray())" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplier_comboActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="newSupplier_button">
           <Properties>

@@ -5,6 +5,7 @@
  */
 package ui;
 
+import base.Database;
 import base.UI;
 import statics.Executor;
 import commands.factory.CommandFactory;

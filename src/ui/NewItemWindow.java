@@ -5,14 +5,19 @@
  */
 package ui;
 
+import base.Database;
 import base.UI;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
+import models.Supplier;
 import statics.Executor;
 
 /**
@@ -93,7 +98,15 @@ public class NewItemWindow extends UI {
         supplier_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         supplier_label.setText("Supplier:");
 
-        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        EntityManager em = Database.EMF.createEntityManager();
+        TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
+        List<Supplier> supplierList = suppliers.getResultList();
+        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel(supplierList.toArray()));
+        supplier_combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier_comboActionPerformed(evt);
+            }
+        });
 
         newSupplier_button.setText("New Supplier...");
         newSupplier_button.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +235,10 @@ public class NewItemWindow extends UI {
         category.show();
     }//GEN-LAST:event_newCategory_buttonActionPerformed
 
+    private void supplier_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_comboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplier_comboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,6 +297,8 @@ public class NewItemWindow extends UI {
         Map fields = new HashMap();
         fields.put(description_textarea.getName(), description_textarea);
         fields.put(name_field.getName(), name_field);
+        fields.put(supplier_combo.getName(), supplier_combo);
+        fields.put(category_combo.getName(), category_combo);
         return fields;
     }
 }

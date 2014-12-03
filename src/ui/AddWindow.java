@@ -8,6 +8,7 @@ package ui;
 import base.UI;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -211,6 +212,9 @@ public class AddWindow extends UI {
 
     @Override
     public Map getFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map fields = new HashMap();
+        fields.put(itemName_combo.getName(), itemName_combo);
+        fields.put(quantity_field.getName(), quantity_field);
+        return fields;
     }
 }

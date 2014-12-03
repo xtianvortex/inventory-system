@@ -7,6 +7,8 @@ package main;
 
 import base.Database;
 import javax.swing.JFrame;
+import models.Monkey;
+import models.factory.ModelFactory;
 import ui.LoginWindow;
 
 /**
