@@ -5,12 +5,16 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author MiriamMarie
  */
 public class EditWindow extends javax.swing.JFrame {
-
+    JFrame item = new EditItemWindow();
+    JFrame supplier = new EditSupplierWindow();
+    
     /**
      * Creates new form EditWindow
      */
@@ -46,6 +50,11 @@ public class EditWindow extends javax.swing.JFrame {
 
         editSupplier_button.setText("Edit Supplier");
         editSupplier_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        editSupplier_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSupplier_buttonActionPerformed(evt);
+            }
+        });
 
         save_button.setText("Save");
         save_button.addActionListener(new java.awt.event.ActionListener() {
@@ -108,16 +117,23 @@ public class EditWindow extends javax.swing.JFrame {
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_save_buttonActionPerformed
 
     private void editItem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editItem_buttonActionPerformed
         // TODO add your handling code here:
-        new EditItemWindow().show();
+        item.show();
     }//GEN-LAST:event_editItem_buttonActionPerformed
+
+    private void editSupplier_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSupplier_buttonActionPerformed
+        // TODO add your handling code here:
+        supplier.show();
+    }//GEN-LAST:event_editSupplier_buttonActionPerformed
 
     /**
      * @param args the command line arguments
