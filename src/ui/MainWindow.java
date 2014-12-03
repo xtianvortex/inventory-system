@@ -6,6 +6,7 @@
 package ui;
 
 import base.UI;
+import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
 
@@ -105,12 +106,10 @@ public class MainWindow extends UI {
         buttons_panelLayout.setHorizontalGroup(
             buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttons_panelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(buttons_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(search_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(buttons_panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(search_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(buttons_panelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(search_field, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(search_button, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)))
@@ -149,16 +148,22 @@ public class MainWindow extends UI {
 
         inventory_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
+                {"name", null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name",
+                "Description",
+                "Quantity",
+                "Category",
+                "Supplier",
+                "Last Added Date"
             }
         ));
         inventory_table.setColumnSelectionAllowed(true);
+        inventory_table.setName("inventory_table"); // NOI18N
         inventory_table.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(inventory_table);
 
@@ -291,6 +296,8 @@ public class MainWindow extends UI {
 
     @Override
     public Map getFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map fields = new HashMap();
+        fields.put(inventory_table.getName(), inventory_table);
+        return fields;
     }
 }

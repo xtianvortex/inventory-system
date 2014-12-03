@@ -98,4 +98,5 @@ public class Category extends Commitable implements Serializable {
     public void setSubcategory(Category category) {
         this.parentCategory = category;
     }
+    
 }
