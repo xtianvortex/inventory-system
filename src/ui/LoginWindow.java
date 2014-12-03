@@ -8,7 +8,6 @@ package ui;
 import base.UI;
 import statics.Executor;
 import commands.factory.CommandFactory;
-import exceptions.AuthenticationException;
 import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
