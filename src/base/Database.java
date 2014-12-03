@@ -8,6 +8,7 @@ package base;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -23,6 +24,9 @@ public class Database {
     
     private void loadDatabase(){
         EntityManager em = EMF.createEntityManager();
+        Query users = em.createNativeQuery("SELECT * FROM MONKEY");
+        users.getResultList();
         
+        em.close();
     }
 }

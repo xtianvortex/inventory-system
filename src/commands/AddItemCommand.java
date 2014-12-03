@@ -7,6 +7,8 @@ package commands;
 
 import base.Command;
 import base.UI;
+import models.Item;
+import models.factory.ModelFactory;
 
 /**
  *
@@ -16,11 +18,12 @@ public class AddItemCommand extends Command {
     
     public AddItemCommand(UI ui){
         elements = ui;
+        
     }
     
     @Override
     public void execute() {
-        // TODO
+
     }
     
 }

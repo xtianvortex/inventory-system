@@ -9,7 +9,6 @@ import base.Command;
 import static base.Database.EMF;
 import base.UI;
 import exceptions.ExecutorException;
-import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.swing.JLabel;
@@ -52,9 +51,11 @@ public class LoginCommand extends Command {
         } catch(NoResultException inc){
             JLabel info = (JLabel) fields.get("information_label");
             info.setText("Login details incorrect.");
+            em.close();
             throw new ExecutorException("Incorrect login details.");
         }
         
+        em.close();
     }
     
 }
