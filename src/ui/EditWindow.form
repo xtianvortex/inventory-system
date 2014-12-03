@@ -82,6 +82,7 @@
                 <LineBorder/>
               </Border>
             </Property>
+            <Property name="name" type="java.lang.String" value="editItem_button" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editItem_buttonActionPerformed"/>
@@ -95,6 +96,7 @@
                 <LineBorder/>
               </Border>
             </Property>
+            <Property name="name" type="java.lang.String" value="editSupplier_button" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editSupplier_buttonActionPerformed"/>

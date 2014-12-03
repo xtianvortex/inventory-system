@@ -5,11 +5,14 @@
  */
 package ui;
 
+import base.UI;
+import java.util.Map;
+
 /**
  *
  * @author MiriamMarie
  */
-public class EditItemWindow extends javax.swing.JFrame {
+public class EditItemWindow extends UI {
 
     /**
      * Creates new form EditItemWindow
@@ -29,12 +32,12 @@ public class EditItemWindow extends javax.swing.JFrame {
 
         editItem_panel = new javax.swing.JPanel();
         item_label = new javax.swing.JLabel();
-        item_combo = new javax.swing.JComboBox();
-        itemname_radiobutton = new javax.swing.JRadioButton();
-        itemname_field = new javax.swing.JTextField();
-        itemdescription_radiobutton = new javax.swing.JRadioButton();
+        itemName_combo = new javax.swing.JComboBox();
+        itemName_radiobutton = new javax.swing.JRadioButton();
+        itemName_field = new javax.swing.JTextField();
+        itemDescription_radiobutton = new javax.swing.JRadioButton();
         description_scollpane = new javax.swing.JScrollPane();
-        description_field = new javax.swing.JTextArea();
+        itemDescription_field = new javax.swing.JTextArea();
         save_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
 
@@ -48,29 +51,34 @@ public class EditItemWindow extends javax.swing.JFrame {
 
         item_label.setText("Choose Item to Edit:");
 
-        item_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemName_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        itemName_combo.setName("itemName_combo"); // NOI18N
 
-        itemname_radiobutton.setText("New Item Name:");
-        itemname_radiobutton.addActionListener(new java.awt.event.ActionListener() {
+        itemName_radiobutton.setLabel("Edit Item Name:");
+        itemName_radiobutton.setName("itemName_radiobutton"); // NOI18N
+        itemName_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemname_radiobuttonActionPerformed(evt);
+                itemName_radiobuttonActionPerformed(evt);
             }
         });
 
-        itemname_field.setEnabled(false);
+        itemName_field.setEnabled(false);
+        itemName_field.setName("itemName_field"); // NOI18N
 
-        itemdescription_radiobutton.setText("New Item Description:");
-        itemdescription_radiobutton.addActionListener(new java.awt.event.ActionListener() {
+        itemDescription_radiobutton.setLabel("Edit Item Description:");
+        itemDescription_radiobutton.setName("itemDescription_radiobutton"); // NOI18N
+        itemDescription_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemdescription_radiobuttonActionPerformed(evt);
+                itemDescription_radiobuttonActionPerformed(evt);
             }
         });
 
-        description_field.setColumns(20);
-        description_field.setLineWrap(true);
-        description_field.setRows(5);
-        description_field.setEnabled(false);
-        description_scollpane.setViewportView(description_field);
+        itemDescription_field.setColumns(20);
+        itemDescription_field.setLineWrap(true);
+        itemDescription_field.setRows(5);
+        itemDescription_field.setEnabled(false);
+        itemDescription_field.setName("itemDescription_field"); // NOI18N
+        description_scollpane.setViewportView(itemDescription_field);
 
         save_button.setText("Save");
         save_button.addActionListener(new java.awt.event.ActionListener() {
@@ -94,18 +102,18 @@ public class EditItemWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editItem_panelLayout.createSequentialGroup()
-                        .addComponent(itemdescription_radiobutton)
+                        .addComponent(itemDescription_radiobutton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(description_scollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(editItem_panelLayout.createSequentialGroup()
                         .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(item_label)
-                            .addComponent(itemname_radiobutton))
+                            .addComponent(itemName_radiobutton))
                         .addGap(20, 20, 20)
                         .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itemname_field, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(item_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                            .addComponent(itemName_field, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editItem_panelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(save_button, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -119,14 +127,14 @@ public class EditItemWindow extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(item_label)
-                    .addComponent(item_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemname_radiobutton)
-                    .addComponent(itemname_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(itemName_radiobutton)
+                    .addComponent(itemName_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(itemdescription_radiobutton)
+                    .addComponent(itemDescription_radiobutton)
                     .addComponent(description_scollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(editItem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -149,23 +157,23 @@ public class EditItemWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemname_radiobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemname_radiobuttonActionPerformed
+    private void itemName_radiobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemName_radiobuttonActionPerformed
         // TODO add your handling code here:]
-        if(itemname_radiobutton.isSelected())
-            itemname_field.setEnabled(true);
-        else itemname_field.setEnabled(false);
-    }//GEN-LAST:event_itemname_radiobuttonActionPerformed
+        if(itemName_radiobutton.isSelected())
+            itemName_field.setEnabled(true);
+        else itemName_field.setEnabled(false);
+    }//GEN-LAST:event_itemName_radiobuttonActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentShown
 
-    private void itemdescription_radiobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemdescription_radiobuttonActionPerformed
+    private void itemDescription_radiobuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDescription_radiobuttonActionPerformed
         // TODO add your handling code here:
-        if(itemdescription_radiobutton.isSelected())
-            description_field.setEnabled(true);
-        else description_field.setEnabled(false);
-    }//GEN-LAST:event_itemdescription_radiobuttonActionPerformed
+        if(itemDescription_radiobutton.isSelected())
+            itemDescription_field.setEnabled(true);
+        else itemDescription_field.setEnabled(false);
+    }//GEN-LAST:event_itemDescription_radiobuttonActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
         // TODO add your handling code here:
@@ -214,14 +222,19 @@ public class EditItemWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel_button;
-    private javax.swing.JTextArea description_field;
     private javax.swing.JScrollPane description_scollpane;
     private javax.swing.JPanel editItem_panel;
-    private javax.swing.JComboBox item_combo;
+    private javax.swing.JTextArea itemDescription_field;
+    private javax.swing.JRadioButton itemDescription_radiobutton;
+    private javax.swing.JComboBox itemName_combo;
+    private javax.swing.JTextField itemName_field;
+    private javax.swing.JRadioButton itemName_radiobutton;
     private javax.swing.JLabel item_label;
-    private javax.swing.JRadioButton itemdescription_radiobutton;
-    private javax.swing.JTextField itemname_field;
-    private javax.swing.JRadioButton itemname_radiobutton;
     private javax.swing.JButton save_button;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

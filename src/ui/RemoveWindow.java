@@ -35,18 +35,19 @@ public class RemoveWindow extends UI {
 
         remove_panel = new javax.swing.JPanel();
         item_label = new javax.swing.JLabel();
-        removeitem_combo = new javax.swing.JComboBox();
+        removeItem_combo = new javax.swing.JComboBox();
         quantity_label = new javax.swing.JLabel();
         remove_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
-        quantity_spinner = new javax.swing.JSpinner();
+        quantity_field = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Remove Item");
 
         item_label.setText("Item Name:");
 
-        removeitem_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        removeItem_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        removeItem_combo.setName("removeItem_combo"); // NOI18N
 
         quantity_label.setText("Quantity:");
 
@@ -64,6 +65,8 @@ public class RemoveWindow extends UI {
             }
         });
 
+        quantity_field.setName("quantity_field"); // NOI18N
+
         javax.swing.GroupLayout remove_panelLayout = new javax.swing.GroupLayout(remove_panel);
         remove_panel.setLayout(remove_panelLayout);
         remove_panelLayout.setHorizontalGroup(
@@ -75,8 +78,8 @@ public class RemoveWindow extends UI {
                     .addComponent(quantity_label, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(remove_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(removeitem_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantity_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeItem_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, remove_panelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -91,11 +94,11 @@ public class RemoveWindow extends UI {
                 .addGap(38, 38, 38)
                 .addGroup(remove_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(item_label)
-                    .addComponent(removeitem_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeItem_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(remove_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantity_label)
-                    .addComponent(quantity_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(remove_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remove_button)
@@ -165,11 +168,11 @@ public class RemoveWindow extends UI {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel_button;
     private javax.swing.JLabel item_label;
+    private javax.swing.JSpinner quantity_field;
     private javax.swing.JLabel quantity_label;
-    private javax.swing.JSpinner quantity_spinner;
+    private javax.swing.JComboBox removeItem_combo;
     private javax.swing.JButton remove_button;
     private javax.swing.JPanel remove_panel;
-    private javax.swing.JComboBox removeitem_combo;
     // End of variables declaration//GEN-END:variables
 
     @Override

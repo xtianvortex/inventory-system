@@ -47,8 +47,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="removeitem_combo" min="-2" pref="206" max="-2" attributes="0"/>
-                      <Component id="quantity_spinner" min="-2" pref="73" max="-2" attributes="0"/>
+                      <Component id="removeItem_combo" min="-2" pref="206" max="-2" attributes="0"/>
+                      <Component id="quantity_field" min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               </Group>
@@ -67,12 +67,12 @@
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="item_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="removeitem_combo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="removeItem_combo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="quantity_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="quantity_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="quantity_field" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -90,7 +90,7 @@
             <Property name="text" type="java.lang.String" value="Item Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="removeitem_combo">
+        <Component class="javax.swing.JComboBox" name="removeItem_combo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -100,6 +100,7 @@
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="removeItem_combo" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="quantity_label">
@@ -123,7 +124,10 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancel_buttonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JSpinner" name="quantity_spinner">
+        <Component class="javax.swing.JSpinner" name="quantity_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="quantity_field" noResource="true"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
