@@ -7,29 +7,30 @@ package commands;
 
 import base.Command;
 import base.UI;
+import exceptions.ExecutorException;
 import javax.swing.JTextField;
-import models.Supplier;
+import models.Category;
 import models.factory.ModelFactory;
 
 /**
  *
  * @author tan
  */
-public class AddSupplierCommand extends Command {
+public class AddCategoryCommand extends Command {
     
-    public AddSupplierCommand(UI ui){
+    public AddCategoryCommand(UI ui){
         elements = ui;
         fields = elements.getFields();
     }
 
     @Override
-    public void execute() {
-        Supplier newSupplier = ModelFactory.createSupplier();
+    public void execute() throws ExecutorException {
+        Category newCategory = ModelFactory.createCategory();
         
-        JTextField city = (JTextField) fields.get("city_field");
+        JTextField name = (JTextField) fields.get("categoryName_field");
         // TODO
-        
-        //newSupplier.commit();
+        throw new UnsupportedOperationException("FIXME: complete execute() function");
+        //newCategory.commit();
     }
     
 }

@@ -7,10 +7,7 @@ package commands.factory;
 
 import base.Command;
 import base.UI;
-import commands.AddItemCommand;
-import commands.AddSupplierCommand;
-import commands.LoginCommand;
-import commands.RemoveItemCommand;
+import commands.*;
 
 /**
  *
@@ -54,5 +51,8 @@ public class CommandFactory {
         return new RemoveItemCommand(ui);
     }
     
+    public static Command createAddCategoryCommand(UI ui){
+        return new AddCategoryCommand(ui);
+    }
     
 }
