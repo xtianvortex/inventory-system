@@ -5,19 +5,29 @@
  */
 package ui;
 
+import base.UI;
+import statics.Executor;
+import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
  *
  * @author MiriamMarie
  */
-public class LoginWindow extends javax.swing.JFrame {
-
+public class LoginWindow extends UI {
+    
     /**
      * Creates new form Login
      */
     public LoginWindow() {
         initComponents();
+        Executor.put("login", CommandFactory.createLoginCommand(this));
     }
 
     /**
@@ -48,6 +58,10 @@ public class LoginWindow extends javax.swing.JFrame {
 
         username_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         username_label.setText("Username:");
+
+        username_field.setName("username_field"); // NOI18N
+
+        password_field.setName("password_field"); // NOI18N
 
         login_button.setText("Login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +140,11 @@ public class LoginWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        // TODO add your handling code here:
+        try {
+            Executor.execute("login");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JFrame test = new MainWindow();
         test.show();
         this.setVisible(false);
@@ -164,7 +182,7 @@ public class LoginWindow extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        System.out.println("something");
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -183,4 +201,13 @@ public class LoginWindow extends javax.swing.JFrame {
     private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(username_field.getName(), username_field);
+        fields.put(password_field.getName(), password_field);
+        return fields;
+    }
+
 }

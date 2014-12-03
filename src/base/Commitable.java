@@ -17,7 +17,7 @@ import javax.persistence.Transient;
 public abstract class Commitable {
     
     @Transient
-    protected static EntityManagerFactory emf =
+    public static EntityManagerFactory emf =
             Persistence.createEntityManagerFactory("InventoryPersistence");
     
     /**
@@ -29,5 +29,13 @@ public abstract class Commitable {
         em.persist(this);
         em.getTransaction().commit();
         em.close();
+    }
+    
+    /**
+     * This method deletes the matching object
+     * from the database
+     */
+    public void delete(){
+        // TODO
     }
 }

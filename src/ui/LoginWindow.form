@@ -110,8 +110,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="username_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="username_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="password_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="password_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="login_button">
           <Properties>

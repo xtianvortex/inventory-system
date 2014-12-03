@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package exceptions;
 
 /**
  *
  * @author tan
  */
-public class AddItem {
-    
+public class ExecutorException extends Exception {
+    public ExecutorException(String msg){
+        System.out.println(msg);
+    }
 }

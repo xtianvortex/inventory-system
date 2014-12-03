@@ -5,17 +5,24 @@
  */
 package ui;
 
+import base.UI;
+import commands.factory.CommandFactory;
+import java.util.HashMap;
+import java.util.Map;
+import statics.Executor;
+
 /**
  *
  * @author MiriamMarie
  */
-public class NewItemWindow extends javax.swing.JFrame {
+public class NewItemWindow extends UI {
 
     /**
      * Creates new form NewItem
      */
     public NewItemWindow() {
         initComponents();
+        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
     }
 
     /**
@@ -188,4 +195,12 @@ public class NewItemWindow extends javax.swing.JFrame {
     private javax.swing.JLabel name_label;
     private javax.swing.JButton save_button;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(description_textarea.getName(), description_textarea);
+        fields.put(name_field.getName(), name_field);
+        return fields;
+    }
 }

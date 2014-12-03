@@ -5,17 +5,23 @@
  */
 package ui;
 
+import base.UI;
+import commands.factory.CommandFactory;
+import java.util.Map;
+import statics.Executor;
+
 /**
  *
  * @author MiriamMarie
  */
-public class RemoveWindow extends javax.swing.JFrame {
+public class RemoveWindow extends UI {
 
     /**
      * Creates new form RemoveWindow
      */
     public RemoveWindow() {
         initComponents();
+        Executor.put("removeItem", CommandFactory.createRemoveItemCommand(this));
     }
 
     /**
@@ -168,4 +174,9 @@ public class RemoveWindow extends javax.swing.JFrame {
     private javax.swing.JButton remove_button;
     private javax.swing.JPanel remove_panel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

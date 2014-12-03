@@ -7,11 +7,14 @@ package models;
 
 import base.Commitable;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +30,12 @@ public class Category extends Commitable implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="PARENT_CATEGORY")
+    private Category parentCategory;
+    
+    
     
     @Column(name="NAME")
     private String name;
@@ -74,5 +83,19 @@ public class Category extends Commitable implements Serializable {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the parentCategory
+     */
+    public Category getParentcategory() {
+        return parentCategory;
+    }
+
+    /**
+     * @param category the parentCategory to set
+     */
+    public void setSubcategory(Category category) {
+        this.parentCategory = category;
     }
 }
