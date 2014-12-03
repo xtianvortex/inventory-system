@@ -27,6 +27,7 @@ public class LoginCommand extends Command {
     @Override
     public void execute() {
         Map fields = elements.getFields();
+        
         JTextField usernameField = (JTextField) fields.get("username_field");
         JPasswordField passwordField = (JPasswordField) fields.get("password_field");
         

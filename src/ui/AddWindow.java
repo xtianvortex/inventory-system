@@ -5,13 +5,20 @@
  */
 package ui;
 
+import base.UI;
+import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import statics.Executor;
 
 /**
  *
  * @author MiriamMarie
  */
-public class AddWindow extends javax.swing.JFrame {
+public class AddWindow extends UI {
     JFrame supplier = new NewSupplierWindow();
     JFrame item = new NewItemWindow();
     /**
@@ -19,6 +26,7 @@ public class AddWindow extends javax.swing.JFrame {
      */
     public AddWindow() {
         initComponents();
+        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
     }
 
     /**
@@ -172,7 +180,12 @@ public class AddWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_newItem_buttonActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Executor.execute("addItem");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(AddWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_add_buttonActionPerformed
 
@@ -236,4 +249,9 @@ public class AddWindow extends javax.swing.JFrame {
     private javax.swing.JLabel quantity_label;
     private javax.swing.JLabel quantity_label1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

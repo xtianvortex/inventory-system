@@ -10,7 +10,6 @@ import statics.Executor;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -188,9 +187,9 @@ public class LoginWindow extends UI {
     private javax.swing.JButton cancel_button;
     private javax.swing.JButton login_button;
     private javax.swing.JPanel login_panel;
-    private javax.swing.JPasswordField password_field;
+    public javax.swing.JPasswordField password_field;
     private javax.swing.JLabel password_label;
-    private javax.swing.JTextField username_field;
+    public javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
 
