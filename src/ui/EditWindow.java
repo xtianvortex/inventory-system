@@ -5,13 +5,15 @@
  */
 package ui;
 
+import base.UI;
+import java.util.Map;
 import javax.swing.JFrame;
 
 /**
  *
  * @author MiriamMarie
  */
-public class EditWindow extends javax.swing.JFrame {
+public class EditWindow extends UI {
     JFrame item = new EditItemWindow();
     JFrame supplier = new EditSupplierWindow();
     
@@ -42,6 +44,7 @@ public class EditWindow extends javax.swing.JFrame {
 
         editItem_button.setText("Edit Item");
         editItem_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        editItem_button.setName("editItem_button"); // NOI18N
         editItem_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editItem_buttonActionPerformed(evt);
@@ -50,6 +53,7 @@ public class EditWindow extends javax.swing.JFrame {
 
         editSupplier_button.setText("Edit Supplier");
         editSupplier_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        editSupplier_button.setName("editSupplier_button"); // NOI18N
         editSupplier_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editSupplier_buttonActionPerformed(evt);
@@ -177,4 +181,9 @@ public class EditWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton save_button;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

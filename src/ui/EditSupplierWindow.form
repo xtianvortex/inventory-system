@@ -147,11 +147,13 @@
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="supplier_combo" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="name_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Supplier Name:"/>
+            <Property name="name" type="java.lang.String" value="name_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_radiobuttonActionPerformed"/>
@@ -160,11 +162,13 @@
         <Component class="javax.swing.JTextField" name="name_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="name_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="street_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Street:"/>
+            <Property name="name" type="java.lang.String" value="street_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="street_radiobuttonActionPerformed"/>
@@ -178,11 +182,13 @@
         <Component class="javax.swing.JTextField" name="street_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="street_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="city_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit City:"/>
+            <Property name="name" type="java.lang.String" value="city_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="city_radiobuttonActionPerformed"/>
@@ -191,11 +197,13 @@
         <Component class="javax.swing.JTextField" name="city_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="city_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="country_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Country:"/>
+            <Property name="name" type="java.lang.String" value="country_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="country_radiobuttonActionPerformed"/>
@@ -204,11 +212,13 @@
         <Component class="javax.swing.JTextField" name="country_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="country_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="province_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Province:"/>
+            <Property name="name" type="java.lang.String" value="province_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="province_radiobuttonActionPerformed"/>
@@ -217,6 +227,7 @@
         <Component class="javax.swing.JRadioButton" name="zipcode_radiobutton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Zip Code:"/>
+            <Property name="name" type="java.lang.String" value="zipcode_radiobutton" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zipcode_radiobuttonActionPerformed"/>
@@ -225,11 +236,13 @@
         <Component class="javax.swing.JTextField" name="province_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="province_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="zipcode_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="zipcode_field" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="save_button">

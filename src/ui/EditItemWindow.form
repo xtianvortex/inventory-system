@@ -46,23 +46,23 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="itemdescription_radiobutton" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemDescription_radiobutton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="description_scollpane" min="-2" pref="208" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="item_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="itemname_radiobutton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itemName_radiobutton" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="itemname_field" min="-2" pref="208" max="-2" attributes="0"/>
-                              <Component id="item_combo" min="-2" pref="241" max="-2" attributes="0"/>
+                              <Component id="itemName_field" min="-2" pref="208" max="-2" attributes="0"/>
+                              <Component id="itemName_combo" min="-2" pref="241" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="52" max="32767" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -79,16 +79,16 @@
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="item_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="item_combo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemName_combo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="itemname_radiobutton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="itemname_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemName_radiobutton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemName_field" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="itemdescription_radiobutton" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemDescription_radiobutton" min="-2" max="-2" attributes="0"/>
                       <Component id="description_scollpane" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -107,7 +107,7 @@
             <Property name="text" type="java.lang.String" value="Choose Item to Edit:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="item_combo">
+        <Component class="javax.swing.JComboBox" name="itemName_combo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -117,27 +117,31 @@
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="itemName_combo" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="itemname_radiobutton">
+        <Component class="javax.swing.JRadioButton" name="itemName_radiobutton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="New Item Name:"/>
+            <Property name="label" type="java.lang.String" value="Edit Item Name:"/>
+            <Property name="name" type="java.lang.String" value="itemName_radiobutton" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemname_radiobuttonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemName_radiobuttonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="itemname_field">
+        <Component class="javax.swing.JTextField" name="itemName_field">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="itemName_field" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="itemdescription_radiobutton">
+        <Component class="javax.swing.JRadioButton" name="itemDescription_radiobutton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="New Item Description:"/>
+            <Property name="label" type="java.lang.String" value="Edit Item Description:"/>
+            <Property name="name" type="java.lang.String" value="itemDescription_radiobutton" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemdescription_radiobuttonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemDescription_radiobuttonActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="description_scollpane">
@@ -147,12 +151,13 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="description_field">
+            <Component class="javax.swing.JTextArea" name="itemDescription_field">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="enabled" type="boolean" value="false"/>
+                <Property name="name" type="java.lang.String" value="itemDescription_field" noResource="true"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -48,6 +48,7 @@ public class NewItemWindow extends UI {
         name_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         name_label.setText("Name:");
 
+        name_field.setName("name_field"); // NOI18N
         name_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_fieldActionPerformed(evt);
@@ -60,6 +61,7 @@ public class NewItemWindow extends UI {
         description_textarea.setColumns(20);
         description_textarea.setLineWrap(true);
         description_textarea.setRows(5);
+        description_textarea.setName("description_textarea"); // NOI18N
         description_field.setViewportView(description_textarea);
 
         save_button.setText("Save");
