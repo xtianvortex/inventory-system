@@ -31,8 +31,8 @@ public class NewCategoryWindow extends javax.swing.JFrame {
         categoryName_label = new javax.swing.JLabel();
         categoryName_field = new javax.swing.JTextField();
         categoryDescription_label = new javax.swing.JLabel();
-        categoryDescription_field = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        categoryDescription_scrollpane = new javax.swing.JScrollPane();
+        categoryDescription_textarea = new javax.swing.JTextArea();
         save_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
 
@@ -41,12 +41,15 @@ public class NewCategoryWindow extends javax.swing.JFrame {
 
         categoryName_label.setText("Category Name:");
 
+        categoryName_field.setName("categoryName_field"); // NOI18N
+
         categoryDescription_label.setText("Category Description:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        categoryDescription_field.setViewportView(jTextArea1);
+        categoryDescription_textarea.setColumns(20);
+        categoryDescription_textarea.setLineWrap(true);
+        categoryDescription_textarea.setRows(5);
+        categoryDescription_textarea.setName("categoryDescription_textarea"); // NOI18N
+        categoryDescription_scrollpane.setViewportView(categoryDescription_textarea);
 
         save_button.setText("Save");
 
@@ -68,7 +71,7 @@ public class NewCategoryWindow extends javax.swing.JFrame {
                                 .addComponent(categoryName_field))))
                     .addGroup(category_panelLayout.createSequentialGroup()
                         .addContainerGap(88, Short.MAX_VALUE)
-                        .addComponent(categoryDescription_field, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(categoryDescription_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, category_panelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -87,7 +90,7 @@ public class NewCategoryWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(categoryDescription_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(categoryDescription_field, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(categoryDescription_scrollpane, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(category_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save_button)
@@ -146,12 +149,12 @@ public class NewCategoryWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel_button;
-    private javax.swing.JScrollPane categoryDescription_field;
     private javax.swing.JLabel categoryDescription_label;
+    private javax.swing.JScrollPane categoryDescription_scrollpane;
+    private javax.swing.JTextArea categoryDescription_textarea;
     private javax.swing.JTextField categoryName_field;
     private javax.swing.JLabel categoryName_label;
     private javax.swing.JPanel category_panel;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton save_button;
     // End of variables declaration//GEN-END:variables
 }
