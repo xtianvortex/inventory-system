@@ -47,10 +47,12 @@ public class NewCategoryWindow extends UI {
         setTitle("New Category");
 
         categoryName_label.setText("Category Name:");
+        categoryName_label.setName("categoryName_label"); // NOI18N
 
         categoryName_field.setName("categoryName_field"); // NOI18N
 
         categoryDescription_label.setText("Category Description:");
+        categoryDescription_label.setName("categoryDescription_label"); // NOI18N
 
         categoryDescription_textarea.setColumns(20);
         categoryDescription_textarea.setLineWrap(true);
