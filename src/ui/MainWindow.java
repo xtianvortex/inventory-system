@@ -85,7 +85,7 @@ public class MainWindow extends UI {
             }
         });
 
-        exit_button.setText("Save and Exit");
+        exit_button.setText("Exit");
         exit_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exit_buttonActionPerformed(evt);
