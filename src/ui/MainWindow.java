@@ -5,10 +5,15 @@
  */
 package ui;
 
+import base.Database;
 import base.UI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
+import models.Item;
 
 /**
  *
@@ -19,11 +24,13 @@ public class MainWindow extends UI {
     JFrame remove = new RemoveWindow();
     JFrame request = new RequestWindow();
     JFrame edit = new EditWindow();
+    EntityManager em;
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
+        em = Database.EMF.createEntityManager();
     }
 
     /**
@@ -146,13 +153,12 @@ public class MainWindow extends UI {
                 .addGap(20, 20, 20))
         );
 
+        TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
+        List<Item> itemList = items.getResultList();
+
+        Object[][] tableContent = new Object[itemList.size()][6];
         inventory_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"name", null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            tableContent;
             new String [] {
                 "Name",
                 "Description",
