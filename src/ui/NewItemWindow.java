@@ -7,8 +7,11 @@ package ui;
 
 import base.UI;
 import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import statics.Executor;
 
 /**
@@ -22,7 +25,7 @@ public class NewItemWindow extends UI {
      */
     public NewItemWindow() {
         initComponents();
-        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
+        Executor.put("addNewItem", CommandFactory.createAddItemCommand(this));
     }
 
     /**
@@ -140,7 +143,11 @@ public class NewItemWindow extends UI {
     }//GEN-LAST:event_name_fieldActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
-        // TODO add your handling code here:
+        try {
+            Executor.execute("addNewItem");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(NewItemWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_save_buttonActionPerformed
 

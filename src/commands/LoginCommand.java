@@ -23,8 +23,6 @@ import models.Monkey;
  */
 public class LoginCommand extends Command {
     
-    Map fields;
-    
     public LoginCommand(UI ui){
         elements = ui;
         fields = elements.getFields();
