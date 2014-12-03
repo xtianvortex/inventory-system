@@ -8,6 +8,7 @@ package commands;
 import base.Command;
 import base.Commitable;
 import base.UI;
+import exceptions.ExecutorException;
 import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -30,7 +31,7 @@ public class LoginCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws ExecutorException {
         
         JTextField usernameField = (JTextField) fields.get("username_field");
         JPasswordField passwordField = (JPasswordField) fields.get("password_field");
@@ -40,7 +41,7 @@ public class LoginCommand extends Command {
         login(username, password);
     }
     
-    private void login(String username, String password) {
+    private void login(String username, String password) throws ExecutorException {
         EntityManager em = Commitable.emf.createEntityManager();
         
         em.getTransaction().begin();
@@ -53,7 +54,7 @@ public class LoginCommand extends Command {
         } catch(NoResultException inc){
             JLabel info = (JLabel) fields.get("information_label");
             info.setText("Login details incorrect.");
-            elements.update(null);
+            throw new ExecutorException("Incorrect login details.");
         }
         
     }

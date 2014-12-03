@@ -5,11 +5,13 @@
  */
 package base;
 
+import exceptions.ExecutorException;
+
 /**
  *
  * @author tan
  */
 public abstract class Command {
     protected UI elements;
-    public abstract void execute();
+    public abstract void execute() throws ExecutorException ;
 }

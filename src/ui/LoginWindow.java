@@ -143,14 +143,12 @@ public class LoginWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        
-        /**
-         * throws AuthenticationException if the login details are incorrect.
-         */
+
         try {
             Executor.execute("login");
         } catch (ExecutorException ex) {
             Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
+            return;
         }
         
         JFrame test = new MainWindow();
