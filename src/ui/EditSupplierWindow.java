@@ -5,11 +5,14 @@
  */
 package ui;
 
+import base.UI;
+import java.util.Map;
+
 /**
  *
  * @author MiriamMarie
  */
-public class EditSupplierWindow extends javax.swing.JFrame {
+public class EditSupplierWindow extends UI {
 
     /**
      * Creates new form EditSupplierWindow
@@ -52,8 +55,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         editSupplier_label.setText("Choose Supplier to Edit:");
 
         supplier_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        supplier_combo.setName("supplier_combo"); // NOI18N
 
         name_radiobutton.setText("Edit Supplier Name:");
+        name_radiobutton.setName("name_radiobutton"); // NOI18N
         name_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_radiobuttonActionPerformed(evt);
@@ -61,8 +66,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         });
 
         name_field.setEnabled(false);
+        name_field.setName("name_field"); // NOI18N
 
         street_radiobutton.setText("Edit Street:");
+        street_radiobutton.setName("street_radiobutton"); // NOI18N
         street_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 street_radiobuttonActionPerformed(evt);
@@ -72,8 +79,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         editSupplier_label1.setText("Edit Address");
 
         street_field.setEnabled(false);
+        street_field.setName("street_field"); // NOI18N
 
         city_radiobutton.setText("Edit City:");
+        city_radiobutton.setName("city_radiobutton"); // NOI18N
         city_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 city_radiobuttonActionPerformed(evt);
@@ -81,8 +90,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         });
 
         city_field.setEnabled(false);
+        city_field.setName("city_field"); // NOI18N
 
         country_radiobutton.setText("Edit Country:");
+        country_radiobutton.setName("country_radiobutton"); // NOI18N
         country_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 country_radiobuttonActionPerformed(evt);
@@ -90,8 +101,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         });
 
         country_field.setEnabled(false);
+        country_field.setName("country_field"); // NOI18N
 
         province_radiobutton.setText("Edit Province:");
+        province_radiobutton.setName("province_radiobutton"); // NOI18N
         province_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 province_radiobuttonActionPerformed(evt);
@@ -99,6 +112,7 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         });
 
         zipcode_radiobutton.setText("Edit Zip Code:");
+        zipcode_radiobutton.setName("zipcode_radiobutton"); // NOI18N
         zipcode_radiobutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zipcode_radiobuttonActionPerformed(evt);
@@ -106,8 +120,10 @@ public class EditSupplierWindow extends javax.swing.JFrame {
         });
 
         province_field.setEnabled(false);
+        province_field.setName("province_field"); // NOI18N
 
         zipcode_field.setEnabled(false);
+        zipcode_field.setName("zipcode_field"); // NOI18N
 
         save_button.setText("Save");
         save_button.addActionListener(new java.awt.event.ActionListener() {
@@ -321,4 +337,9 @@ public class EditSupplierWindow extends javax.swing.JFrame {
     private javax.swing.JTextField zipcode_field;
     private javax.swing.JRadioButton zipcode_radiobutton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -95,7 +95,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="suppliername_label" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="suppliername_field" min="-2" pref="271" max="-2" attributes="0"/>
+                                  <Component id="supplierName_field" min="-2" pref="271" max="-2" attributes="0"/>
                               </Group>
                               <Component id="address_label" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -111,7 +111,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="suppliername_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="suppliername_field" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="supplierName_field" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="address_label" min="-2" max="-2" attributes="0"/>
@@ -162,9 +162,12 @@
             <Property name="text" type="java.lang.String" value="Address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="suppliername_field">
+        <Component class="javax.swing.JTextField" name="supplierName_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="supplierName_field" noResource="true"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="suppliername_fieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplierName_fieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="street_label">
@@ -173,6 +176,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="street_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="street_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zipcode_label">
           <Properties>
@@ -180,6 +186,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="zipcode_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="zipcode_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="country_label">
           <Properties>
@@ -187,6 +196,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="country_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="country_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="city_label">
           <Properties>
@@ -194,6 +206,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="city_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="city_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="province_label">
           <Properties>
@@ -201,6 +216,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="province_field">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="province_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="cancel_button">
           <Properties>

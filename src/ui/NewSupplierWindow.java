@@ -30,7 +30,7 @@ public class NewSupplierWindow extends javax.swing.JFrame {
         supplier_panel = new javax.swing.JPanel();
         suppliername_label = new javax.swing.JLabel();
         address_label = new javax.swing.JLabel();
-        suppliername_field = new javax.swing.JTextField();
+        supplierName_field = new javax.swing.JTextField();
         street_label = new javax.swing.JLabel();
         street_field = new javax.swing.JTextField();
         zipcode_label = new javax.swing.JLabel();
@@ -51,21 +51,32 @@ public class NewSupplierWindow extends javax.swing.JFrame {
 
         address_label.setText("Address");
 
-        suppliername_field.addActionListener(new java.awt.event.ActionListener() {
+        supplierName_field.setName("supplierName_field"); // NOI18N
+        supplierName_field.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suppliername_fieldActionPerformed(evt);
+                supplierName_fieldActionPerformed(evt);
             }
         });
 
         street_label.setText("Street:");
 
+        street_field.setName("street_field"); // NOI18N
+
         zipcode_label.setText("Zip Code:");
+
+        zipcode_field.setName("zipcode_field"); // NOI18N
 
         country_label.setText("Country:");
 
+        country_field.setName("country_field"); // NOI18N
+
         city_label.setText("City:");
 
+        city_field.setName("city_field"); // NOI18N
+
         province_label.setText("Province:");
+
+        province_field.setName("province_field"); // NOI18N
 
         cancel_button.setText("Cancel");
         cancel_button.setToolTipText("");
@@ -130,7 +141,7 @@ public class NewSupplierWindow extends javax.swing.JFrame {
                             .addGroup(supplier_panelLayout.createSequentialGroup()
                                 .addComponent(suppliername_label)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(suppliername_field, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(supplierName_field, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(address_label))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -140,7 +151,7 @@ public class NewSupplierWindow extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(supplier_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(suppliername_label)
-                    .addComponent(suppliername_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(supplierName_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(address_label)
                 .addGap(18, 18, 18)
@@ -184,9 +195,9 @@ public class NewSupplierWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void suppliername_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliername_fieldActionPerformed
+    private void supplierName_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierName_fieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_suppliername_fieldActionPerformed
+    }//GEN-LAST:event_supplierName_fieldActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
@@ -245,8 +256,8 @@ public class NewSupplierWindow extends javax.swing.JFrame {
     private javax.swing.JLabel province_label;
     private javax.swing.JTextField street_field;
     private javax.swing.JLabel street_label;
+    private javax.swing.JTextField supplierName_field;
     private javax.swing.JPanel supplier_panel;
-    private javax.swing.JTextField suppliername_field;
     private javax.swing.JLabel suppliername_label;
     private javax.swing.JTextField zipcode_field;
     private javax.swing.JLabel zipcode_label;

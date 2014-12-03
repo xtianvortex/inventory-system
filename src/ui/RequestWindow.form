@@ -50,7 +50,7 @@
                       <Group type="102" attributes="0">
                           <Component id="itemname_label" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="requestitem_combo" min="-2" pref="204" max="-2" attributes="0"/>
+                          <Component id="requestItem_combo" min="-2" pref="204" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -70,7 +70,7 @@
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="itemname_label" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="requestitem_combo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="requestItem_combo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -98,7 +98,7 @@
             <Property name="text" type="java.lang.String" value="Quantity:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="requestitem_combo">
+        <Component class="javax.swing.JComboBox" name="requestItem_combo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -108,9 +108,13 @@
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="requestItem_combo" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSpinner" name="quantity_spinner">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="quantity_field" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="request_button">
           <Properties>
