@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
+import models.Category;
 import models.Supplier;
 import statics.Executor;
 
@@ -27,6 +28,7 @@ import statics.Executor;
 public class NewItemWindow extends UI {
     JFrame supplier = new NewSupplierWindow();
     JFrame category = new NewCategoryWindow();
+    EntityManager em = Database.EMF.createEntityManager();
     
     /**
      * Creates new form NewItem
@@ -98,7 +100,6 @@ public class NewItemWindow extends UI {
         supplier_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         supplier_label.setText("Supplier:");
 
-        EntityManager em = Database.EMF.createEntityManager();
         TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
         List<Supplier> supplierList = suppliers.getResultList();
         supplier_combo.setModel(new javax.swing.DefaultComboBoxModel());
@@ -120,7 +121,11 @@ public class NewItemWindow extends UI {
         category_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         category_label.setText("Category:");
 
-        category_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TypedQuery categories = em.createQuery("SELECT c FROM Category c", Category.class);
+        List<Category> categoryList = categories.getResultList();
+        category_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        for(Category c : categoryList)
+        category_combo.addItem (c);
 
         newCategory_button.setText("New Category...");
         newCategory_button.addActionListener(new java.awt.event.ActionListener() {

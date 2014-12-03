@@ -5,14 +5,19 @@
  */
 package ui;
 
+import base.Database;
 import base.UI;
 import commands.factory.CommandFactory;
 import exceptions.ExecutorException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
+import models.Item;
 import statics.Executor;
 
 /**
@@ -53,7 +58,12 @@ public class AddWindow extends UI {
         itemname_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itemname_label.setText("Item Name:");
 
-        itemName_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        EntityManager em = Database.EMF.createEntityManager();
+        TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
+        List<Item> itemList = items.getResultList();
+        itemName_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        for(Item i : itemList)
+        itemName_combo.addItem(i);
         itemName_combo.setName("itemName_combo"); // NOI18N
 
         quantity_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,13 +104,12 @@ public class AddWindow extends UI {
                             .addGroup(additem_panelLayout.createSequentialGroup()
                                 .addComponent(quantity_label, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(additem_panelLayout.createSequentialGroup()
                                 .addComponent(itemname_label, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
+                                .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(newItem_button, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(33, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, additem_panelLayout.createSequentialGroup()
