@@ -8,6 +8,7 @@ package ui;
 import base.UI;
 import statics.Executor;
 import commands.factory.CommandFactory;
+import exceptions.AuthenticationException;
 import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +46,7 @@ public class LoginWindow extends UI {
         password_field = new javax.swing.JPasswordField();
         login_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
+        information_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -75,6 +77,8 @@ public class LoginWindow extends UI {
             }
         });
 
+        information_label.setName("information_label"); // NOI18N
+
         javax.swing.GroupLayout login_panelLayout = new javax.swing.GroupLayout(login_panel);
         login_panel.setLayout(login_panelLayout);
         login_panelLayout.setHorizontalGroup(
@@ -82,10 +86,6 @@ public class LoginWindow extends UI {
             .addGroup(login_panelLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
-                        .addComponent(username_label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(username_field))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,13 +96,23 @@ public class LoginWindow extends UI {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
                                 .addComponent(password_label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(login_panelLayout.createSequentialGroup()
+                        .addComponent(username_label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(login_panelLayout.createSequentialGroup()
+                                .addComponent(information_label)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(username_field))))
                 .addGap(85, 85, 85))
         );
         login_panelLayout.setVerticalGroup(
             login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addComponent(information_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(username_label, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,11 +142,16 @@ public class LoginWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
+        
+        /**
+         * throws AuthenticationException if the login details are incorrect.
+         */
         try {
             Executor.execute("login");
         } catch (ExecutorException ex) {
             Logger.getLogger(LoginWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         JFrame test = new MainWindow();
         test.show();
         this.setVisible(false);
@@ -185,6 +200,7 @@ public class LoginWindow extends UI {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancel_button;
+    private javax.swing.JLabel information_label;
     private javax.swing.JButton login_button;
     private javax.swing.JPanel login_panel;
     public javax.swing.JPasswordField password_field;
@@ -198,6 +214,7 @@ public class LoginWindow extends UI {
         Map fields = new HashMap();
         fields.put(username_field.getName(), username_field);
         fields.put(password_field.getName(), password_field);
+        fields.put(information_label.getName(), information_label);
         return fields;
     }
 

@@ -8,8 +8,13 @@ package commands;
 import base.Command;
 import base.Commitable;
 import base.UI;
+import exceptions.AuthenticationException;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import models.Monkey;
@@ -20,13 +25,15 @@ import models.Monkey;
  */
 public class LoginCommand extends Command {
     
+    Map fields;
+    
     public LoginCommand(UI ui){
         elements = ui;
+        fields = elements.getFields();
     }
 
     @Override
     public void execute() {
-        Map fields = elements.getFields();
         
         JTextField usernameField = (JTextField) fields.get("username_field");
         JPasswordField passwordField = (JPasswordField) fields.get("password_field");
@@ -36,16 +43,21 @@ public class LoginCommand extends Command {
         login(username, password);
     }
     
-    private void login(String username, String password){
+    private void login(String username, String password) {
         EntityManager em = Commitable.emf.createEntityManager();
         
         em.getTransaction().begin();
         StringBuilder builder = new StringBuilder("SELECT * FROM MONKEY WHERE ");
         builder.append("USERNAME=").append("\'").append(username).append("\'")
                 .append(" AND PASSWORD=").append("\'").append(password).append("\'");
-        Monkey monkey = (Monkey) em.createNativeQuery(builder.toString(), Monkey.class).getSingleResult();
         
-        // TODO
+        try{
+            Monkey monkey = (Monkey) em.createNativeQuery(builder.toString(), Monkey.class).getSingleResult();
+        } catch(NoResultException inc){
+            JLabel info = (JLabel) fields.get("information_label");
+            info.setText("Login details incorrect.");
+            elements.update(null);
+        }
         
     }
     
