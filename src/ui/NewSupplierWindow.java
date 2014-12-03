@@ -7,8 +7,11 @@ package ui;
 
 import base.UI;
 import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import statics.Executor;
 
 /**
@@ -22,7 +25,7 @@ public class NewSupplierWindow extends UI {
      */
     public NewSupplierWindow() {
         initComponents();
-        Executor.put("addSupplier", CommandFactory.createAddSupplierCommand(this));
+        Executor.put("addNewSupplier", CommandFactory.createAddSupplierCommand(this));
     }
 
     /**
@@ -207,8 +210,12 @@ public class NewSupplierWindow extends UI {
     }//GEN-LAST:event_supplierName_fieldActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+        try {
+            // TODO add your handling code here:
+            Executor.execute("addNewSupplier");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(NewSupplierWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
@@ -274,7 +281,11 @@ public class NewSupplierWindow extends UI {
     public Map getFields() {
         Map fields = new HashMap();
         fields.put(city_field.getName(), city_field);
-        // TODO
+        fields.put(zipcode_field.getName(), zipcode_field);
+        fields.put(street_field.getName(), street_field);
+        fields.put(province_field.getName(), province_field);
+        fields.put(country_field.getName(), country_field);
+        fields.put(supplierName_field.getName(), supplierName_field);
         return fields;
     }
 }

@@ -7,6 +7,7 @@ package models;
 
 import base.Commitable;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,10 +29,15 @@ public class Supplier extends Commitable implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     
+    @Column(name="NAME")
+    private String name;
+    
     @Embedded
+    @Column(name="ADDRESS")
     private Address address;
     
     @Embedded
+    @Column(name="CONTACT")
     private Contact contact;
 
     /**
@@ -74,5 +80,24 @@ public class Supplier extends Commitable implements Serializable {
      */
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public String toString(){
+        return name;
     }
 }

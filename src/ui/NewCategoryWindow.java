@@ -5,17 +5,24 @@
  */
 package ui;
 
+import base.UI;
+import commands.factory.CommandFactory;
+import java.util.HashMap;
+import java.util.Map;
+import statics.Executor;
+
 /**
  *
  * @author MiriamMarie
  */
-public class NewCategoryWindow extends javax.swing.JFrame {
+public class NewCategoryWindow extends UI {
 
     /**
      * Creates new form NewCategoryWindow
      */
     public NewCategoryWindow() {
         initComponents();
+        Executor.put("addNewCategory", CommandFactory.createAddCategoryCommand(this));
     }
 
     /**
@@ -157,4 +164,13 @@ public class NewCategoryWindow extends javax.swing.JFrame {
     private javax.swing.JPanel category_panel;
     private javax.swing.JButton save_button;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Map getFields() {
+        Map fields = new HashMap();
+        fields.put(categoryName_field.getName(), categoryName_field);
+        throw new UnsupportedOperationException("FIXME: complete getFields() function."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }

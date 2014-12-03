@@ -182,15 +182,16 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="supplier_combo">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" preCode="TypedQuery suppliers = em.createQuery(&quot;SELECT s FROM Supplier s&quot;, Supplier.class);&#xa;List&lt;Supplier&gt; supplierList = suppliers.getResultList();">
+              <Connection code="new javax.swing.DefaultComboBoxModel()" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supplier_comboActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="for(Supplier s : supplierList)&#xa;    supplier_combo.addItem(s);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="newSupplier_button">
           <Properties>
@@ -208,15 +209,14 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="category_combo">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel()" type="code"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="for(Category c : categoryList)&#xa;    category_combo.addItem (c);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="TypedQuery categories = em.createQuery(&quot;SELECT c FROM Category c&quot;, Category.class);&#xa;List&lt;Category&gt; categoryList = categories.getResultList();"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="newCategory_button">
           <Properties>

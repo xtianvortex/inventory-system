@@ -6,10 +6,9 @@
 package commands;
 
 import base.Command;
-import base.Commitable;
+import static base.Database.EMF;
 import base.UI;
 import exceptions.ExecutorException;
-import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.swing.JLabel;
@@ -22,8 +21,6 @@ import models.Monkey;
  * @author tan
  */
 public class LoginCommand extends Command {
-    
-    Map fields;
     
     public LoginCommand(UI ui){
         elements = ui;
@@ -42,7 +39,7 @@ public class LoginCommand extends Command {
     }
     
     private void login(String username, String password) throws ExecutorException {
-        EntityManager em = Commitable.emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         
         em.getTransaction().begin();
         StringBuilder builder = new StringBuilder("SELECT * FROM MONKEY WHERE ");
@@ -54,9 +51,11 @@ public class LoginCommand extends Command {
         } catch(NoResultException inc){
             JLabel info = (JLabel) fields.get("information_label");
             info.setText("Login details incorrect.");
+            em.close();
             throw new ExecutorException("Incorrect login details.");
         }
         
+        em.close();
     }
     
 }

@@ -5,11 +5,20 @@
  */
 package ui;
 
+import base.Database;
 import base.UI;
 import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
+import models.Category;
+import models.Supplier;
 import statics.Executor;
 
 /**
@@ -19,13 +28,14 @@ import statics.Executor;
 public class NewItemWindow extends UI {
     JFrame supplier = new NewSupplierWindow();
     JFrame category = new NewCategoryWindow();
+    EntityManager em = Database.EMF.createEntityManager();
     
     /**
      * Creates new form NewItem
      */
     public NewItemWindow() {
         initComponents();
-        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
+        Executor.put("addNewItem", CommandFactory.createAddItemCommand(this));
     }
 
     /**
@@ -90,7 +100,16 @@ public class NewItemWindow extends UI {
         supplier_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         supplier_label.setText("Supplier:");
 
-        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
+        List<Supplier> supplierList = suppliers.getResultList();
+        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        for(Supplier s : supplierList)
+        supplier_combo.addItem(s);
+        supplier_combo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier_comboActionPerformed(evt);
+            }
+        });
 
         newSupplier_button.setText("New Supplier...");
         newSupplier_button.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +121,11 @@ public class NewItemWindow extends UI {
         category_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         category_label.setText("Category:");
 
-        category_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TypedQuery categories = em.createQuery("SELECT c FROM Category c", Category.class);
+        List<Category> categoryList = categories.getResultList();
+        category_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        for(Category c : categoryList)
+        category_combo.addItem (c);
 
         newCategory_button.setText("New Category...");
         newCategory_button.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +219,11 @@ public class NewItemWindow extends UI {
     }//GEN-LAST:event_name_fieldActionPerformed
 
     private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
-        // TODO add your handling code here:
+        try {
+            Executor.execute("addNewItem");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(NewItemWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
     }//GEN-LAST:event_save_buttonActionPerformed
 
@@ -214,6 +241,10 @@ public class NewItemWindow extends UI {
         // TODO add your handling code here:
         category.show();
     }//GEN-LAST:event_newCategory_buttonActionPerformed
+
+    private void supplier_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_comboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplier_comboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +304,8 @@ public class NewItemWindow extends UI {
         Map fields = new HashMap();
         fields.put(description_textarea.getName(), description_textarea);
         fields.put(name_field.getName(), name_field);
+        fields.put(supplier_combo.getName(), supplier_combo);
+        fields.put(category_combo.getName(), category_combo);
         return fields;
     }
 }
