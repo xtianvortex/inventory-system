@@ -101,7 +101,9 @@ public class NewItemWindow extends UI {
         EntityManager em = Database.EMF.createEntityManager();
         TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
         List<Supplier> supplierList = suppliers.getResultList();
-        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel(supplierList.toArray()));
+        supplier_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        for(Supplier s : supplierList)
+        supplier_combo.addItem(s);
         supplier_combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier_comboActionPerformed(evt);

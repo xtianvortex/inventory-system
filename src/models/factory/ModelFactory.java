@@ -7,6 +7,7 @@ package models.factory;
 
 import models.Address;
 import models.Category;
+import models.Contact;
 import models.Item;
 import models.Monkey;
 import models.Supplier;
@@ -54,5 +55,13 @@ public class ModelFactory {
      */
     public static Supplier createSupplier(){
         return new Supplier();
+    }
+
+    /**
+     * 
+     * @return a new Contact object
+     */
+    public static Contact createContact() {
+        return new Contact();
     }
 }
