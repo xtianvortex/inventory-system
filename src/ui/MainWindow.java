@@ -155,10 +155,19 @@ public class MainWindow extends UI {
 
         TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
         List<Item> itemList = items.getResultList();
-
         Object[][] tableContent = new Object[itemList.size()][6];
+
+        for(int i=0; i<itemList.size(); i++){
+            Item temp = itemList.get(i);
+            tableContent[i][0] = temp;
+            tableContent[i][1] = temp.getDescription();
+            tableContent[i][2] = String.valueOf(temp.getQuantity());
+            tableContent[i][3] = temp.getCategory();
+            tableContent[i][4] = temp.getSupplier();
+            tableContent[i][5] = temp.getDateLastAdded();
+        }
         inventory_table.setModel(new javax.swing.table.DefaultTableModel(
-            tableContent;
+            tableContent,
             new String [] {
                 "Name",
                 "Description",

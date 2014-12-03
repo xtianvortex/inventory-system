@@ -196,7 +196,7 @@
             <Component class="javax.swing.JTable" name="inventory_table">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tableContent;&#xa;    new String [] {&#xa;        &quot;Name&quot;,&#xa;        &quot;Description&quot;,&#xa;        &quot;Quantity&quot;,&#xa;        &quot;Category&quot;,&#xa;        &quot;Supplier&quot;,&#xa;        &quot;Last Added Date&quot;&#xa;    }&#xa;)" type="code"/>
+                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    tableContent,&#xa;    new String [] {&#xa;        &quot;Name&quot;,&#xa;        &quot;Description&quot;,&#xa;        &quot;Quantity&quot;,&#xa;        &quot;Category&quot;,&#xa;        &quot;Supplier&quot;,&#xa;        &quot;Last Added Date&quot;&#xa;    }&#xa;)" type="code"/>
                 </Property>
                 <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                 <Property name="name" type="java.lang.String" value="inventory_table" noResource="true"/>
@@ -205,7 +205,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="TypedQuery items = em.createQuery(&quot;SELECT i FROM Item i&quot;, Item.class);&#xa;List&lt;Item&gt; itemList = items.getResultList();&#xa;&#xa;Object[][] tableContent = new Object[itemList.size()][6];"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="TypedQuery items = em.createQuery(&quot;SELECT i FROM Item i&quot;, Item.class);&#xa;List&lt;Item&gt; itemList = items.getResultList();&#xa;Object[][] tableContent = new Object[itemList.size()][6];&#xa;&#xa;for(int i=0; i&lt;itemList.size(); i++){&#xa;    Item temp = itemList.get(i);&#xa;    tableContent[i][0] = temp;&#xa;    tableContent[i][1] = temp.getDescription();&#xa;    tableContent[i][2] = String.valueOf(temp.getQuantity());&#xa;    tableContent[i][3] = temp.getCategory();&#xa;    tableContent[i][4] = temp.getSupplier();&#xa;    tableContent[i][5] = temp.getDateLastAdded();&#xa;}"/>
               </AuxValues>
             </Component>
           </SubComponents>
