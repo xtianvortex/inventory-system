@@ -19,7 +19,6 @@ import statics.Executor;
  * @author MiriamMarie
  */
 public class AddWindow extends UI {
-    JFrame supplier = new NewSupplierWindow();
     JFrame item = new NewItemWindow();
     /**
      * Creates new form AddItemWindow
@@ -42,10 +41,7 @@ public class AddWindow extends UI {
         itemname_label = new javax.swing.JLabel();
         itemName_combo = new javax.swing.JComboBox();
         quantity_label = new javax.swing.JLabel();
-        quantity_label1 = new javax.swing.JLabel();
-        supplierName_combo = new javax.swing.JComboBox();
         newItem_button = new javax.swing.JButton();
-        newSupplier_button = new javax.swing.JButton();
         add_button = new javax.swing.JButton();
         cancel_button = new javax.swing.JButton();
         quantity_field = new javax.swing.JSpinner();
@@ -62,28 +58,10 @@ public class AddWindow extends UI {
         quantity_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quantity_label.setText("Quantity:");
 
-        quantity_label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        quantity_label1.setText("Supplier:");
-
-        supplierName_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        supplierName_combo.setName("supplierName_combo"); // NOI18N
-        supplierName_combo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplierName_comboActionPerformed(evt);
-            }
-        });
-
         newItem_button.setText("New Item...");
         newItem_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newItem_buttonActionPerformed(evt);
-            }
-        });
-
-        newSupplier_button.setText("New Supplier...");
-        newSupplier_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newSupplier_buttonActionPerformed(evt);
             }
         });
 
@@ -109,32 +87,27 @@ public class AddWindow extends UI {
             additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(additem_panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(additem_panelLayout.createSequentialGroup()
-                        .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancel_button, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(additem_panelLayout.createSequentialGroup()
-                        .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(additem_panelLayout.createSequentialGroup()
+                                .addComponent(quantity_label, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(additem_panelLayout.createSequentialGroup()
                                 .addComponent(itemname_label, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(additem_panelLayout.createSequentialGroup()
-                                .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(quantity_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(quantity_label, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(supplierName_combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(additem_panelLayout.createSequentialGroup()
-                                        .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(18, 18, 18)
-                        .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newSupplier_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(newItem_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                                .addComponent(itemName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addComponent(newItem_button, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, additem_panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(add_button, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cancel_button, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))))
         );
         additem_panelLayout.setVerticalGroup(
             additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,14 +123,9 @@ public class AddWindow extends UI {
                     .addComponent(quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quantity_label1)
-                    .addComponent(supplierName_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newSupplier_button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(additem_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_button)
                     .addComponent(cancel_button))
-                .addGap(36, 36, 36))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,10 +141,6 @@ public class AddWindow extends UI {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void supplierName_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierName_comboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_supplierName_comboActionPerformed
 
     private void newItem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newItem_buttonActionPerformed
         // TODO add your handling code here:
@@ -197,12 +161,6 @@ public class AddWindow extends UI {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
-
-    private void newSupplier_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSupplier_buttonActionPerformed
-        // TODO add your handling code here:
-        
-        supplier.show();
-    }//GEN-LAST:event_newSupplier_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +205,8 @@ public class AddWindow extends UI {
     private javax.swing.JComboBox itemName_combo;
     private javax.swing.JLabel itemname_label;
     private javax.swing.JButton newItem_button;
-    private javax.swing.JButton newSupplier_button;
     private javax.swing.JSpinner quantity_field;
     private javax.swing.JLabel quantity_label;
-    private javax.swing.JLabel quantity_label1;
-    private javax.swing.JComboBox supplierName_combo;
     // End of variables declaration//GEN-END:variables
 
     @Override
