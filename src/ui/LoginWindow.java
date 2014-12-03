@@ -79,6 +79,7 @@ public class LoginWindow extends UI {
 
         information_label.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         information_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        information_label.setName("information_label"); // NOI18N
 
         javax.swing.GroupLayout login_panelLayout = new javax.swing.GroupLayout(login_panel);
         login_panel.setLayout(login_panelLayout);
@@ -103,14 +104,17 @@ public class LoginWindow extends UI {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(username_field)))
                 .addGap(85, 85, 85))
-            .addComponent(information_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(information_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         login_panelLayout.setVerticalGroup(
             login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, login_panelLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(information_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(information_label, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(login_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(username_label, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
