@@ -9,7 +9,11 @@ import base.Command;
 import base.UI;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import models.Category;
 import models.Item;
+import models.Supplier;
 import models.factory.ModelFactory;
 
 /**
@@ -27,7 +31,17 @@ public class AddItemCommand extends Command {
     public void execute() {
         Item item = ModelFactory.createItem();
         JComboBox category = (JComboBox) fields.get("category_combo");
-        // TODO
+        JComboBox supplier = (JComboBox) fields.get("supplier_combo");
+        JTextField name = (JTextField) fields.get("name_field");
+        JTextArea  description = (JTextArea) fields.get("description_textarea");
+        
+       item.setCategory((Category)category.getSelectedItem());
+       item.setName(name.getText());
+       item.setDescription( description.getText());
+       item.setSupplier((Supplier)supplier.getSelectedItem());
+   
+       item.commit();
+              
     }
     
 }
