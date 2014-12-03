@@ -6,7 +6,7 @@
 package commands;
 
 import base.Command;
-import base.Commitable;
+import static base.Database.EMF;
 import base.UI;
 import exceptions.ExecutorException;
 import java.util.Map;
@@ -42,7 +42,7 @@ public class LoginCommand extends Command {
     }
     
     private void login(String username, String password) throws ExecutorException {
-        EntityManager em = Commitable.emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         
         em.getTransaction().begin();
         StringBuilder builder = new StringBuilder("SELECT * FROM MONKEY WHERE ");

@@ -5,10 +5,8 @@
  */
 package base;
 
+import static base.Database.EMF;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Transient;
 
 /**
  *
@@ -16,15 +14,11 @@ import javax.persistence.Transient;
  */
 public abstract class Commitable {
     
-    @Transient
-    public static EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("InventoryPersistence");
-    
     /**
      * This method commits the object to the database
      */
     public void commit(){
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = EMF.createEntityManager();
         em.getTransaction().begin();
         em.persist(this);
         em.getTransaction().commit();

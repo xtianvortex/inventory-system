@@ -227,6 +227,7 @@ public class MainWindow extends UI {
 
     private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
         this.dispose();
     }//GEN-LAST:event_exit_buttonActionPerformed
 
