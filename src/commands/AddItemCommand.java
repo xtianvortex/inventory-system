@@ -6,8 +6,8 @@
 package commands;
 
 import base.Command;
+import base.Database;
 import base.UI;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -35,12 +35,13 @@ public class AddItemCommand extends Command {
         JTextField name = (JTextField) fields.get("name_field");
         JTextArea  description = (JTextArea) fields.get("description_textarea");
         
-       item.setCategory((Category)category.getSelectedItem());
-       item.setName(name.getText());
-       item.setDescription( description.getText());
-       item.setSupplier((Supplier)supplier.getSelectedItem());
-   
-       item.commit();
+        item.setCategory((Category) category.getSelectedItem());
+        item.setName(name.getText());
+        item.setDescription( description.getText());
+        item.setSupplier((Supplier)supplier.getSelectedItem());
+
+        item.commit();
+        Database.refreshDatabase();
               
     }
     

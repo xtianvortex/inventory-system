@@ -109,7 +109,7 @@
             <Property name="name" type="java.lang.String" value="itemName_combo" noResource="true"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="EntityManager em = Database.EMF.createEntityManager();&#xa;TypedQuery items = em.createQuery(&quot;SELECT i FROM Item i&quot;, Item.class);&#xa;List&lt;Item&gt; itemList = items.getResultList();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="List&lt;Item&gt; itemList = Database.getItemList();"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="quantity_label">

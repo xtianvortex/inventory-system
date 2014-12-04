@@ -205,7 +205,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="TypedQuery items = em.createQuery(&quot;SELECT i FROM Item i&quot;, Item.class);&#xa;List&lt;Item&gt; itemList = items.getResultList();&#xa;Object[][] tableContent = new Object[itemList.size()][6];&#xa;&#xa;for(int i=0; i&lt;itemList.size(); i++){&#xa;    Item temp = itemList.get(i);&#xa;    tableContent[i][0] = temp;&#xa;    tableContent[i][1] = temp.getDescription();&#xa;    tableContent[i][2] = String.valueOf(temp.getQuantity());&#xa;    tableContent[i][3] = temp.getCategory();&#xa;    tableContent[i][4] = temp.getSupplier();&#xa;    tableContent[i][5] = temp.getDateLastAdded();&#xa;}"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="List&lt;Item&gt; itemList = Database.getItemList();&#xa;Object[][] tableContent = new Object[itemList.size()][6];&#xa;&#xa;for(int i=0; i&lt;itemList.size(); i++){&#xa;    Item temp = itemList.get(i);&#xa;    tableContent[i][0] = temp;&#xa;    tableContent[i][1] = temp.getDescription();&#xa;    tableContent[i][2] = String.valueOf(temp.getQuantity());&#xa;    tableContent[i][3] = temp.getCategory();&#xa;    tableContent[i][4] = temp.getSupplier();&#xa;    tableContent[i][5] = temp.getDateLastAdded();&#xa;}"/>
               </AuxValues>
             </Component>
           </SubComponents>

@@ -9,6 +9,7 @@ import base.Database;
 import javax.persistence.EntityManager;
 import javax.swing.JFrame;
 import models.Address;
+import models.Category;
 import models.Contact;
 import models.Monkey;
 import models.Supplier;
@@ -34,6 +35,10 @@ public class Main {
 //        Supplier sup = ModelFactory.createSupplier();
 //        Address add = ModelFactory.createAddress();
 //        Contact contact = ModelFactory.createContact();
+//        Category category = ModelFactory.createCategory();
+//        category.setName("Default Category");
+//        category.setDescription("this is the default category");
+//        em.persist(category);
 //        root.setUsername("root");
 //        root.setPassword("123");
 //        em.persist(root);

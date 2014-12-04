@@ -9,7 +9,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import models.*;
 
@@ -19,6 +18,7 @@ import models.*;
  */
 public class Database {
     public static EntityManagerFactory EMF;
+    private static EntityManager em;
     private static List<Item> itemList;
     private static List<Supplier> supplierList;
     private static List<Category> categoryList;
@@ -54,21 +54,30 @@ public class Database {
     }
     
     public Database(){
-        EMF = Persistence.createEntityManagerFactory("InventoryPersistence");
+        createConnection();
+        loadDatabase();
+    }        
+    
+    
+    private static void loadDatabase(){
+        TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
+        itemList = items.getResultList();
+        TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
+        supplierList = suppliers.getResultList();
+        TypedQuery categories = em.createQuery("SELECT c FROM Category c", Category.class);
+        categoryList = categories.getResultList();
+        TypedQuery departments = em.createQuery("SELECT d FROM Department d", Department.class);
+        departmentList = departments.getResultList();
+        TypedQuery requests = em.createQuery("SELECT r FROM PurchaseRequest r", PurchaseRequest.class);
+        requestList = requests.getResultList();
+    }
+    
+    public static void refreshDatabase(){
         loadDatabase();
     }
     
-    private void loadDatabase(){
-        EntityManager em = EMF.createEntityManager();
-        TypedQuery items = em.createQuery("SELECT I FROM Item I", Item.class);
-        itemList = items.getResultList();
-        Query suppliers = em.createNativeQuery("SELECT * FROM SUPPLIER", Supplier.class);
-        supplierList = suppliers.getResultList();
-        Query categories = em.createNativeQuery("SELECT * FROM CATEGORY", Category.class);
-        categoryList = categories.getResultList();
-        Query departments = em.createNativeQuery("SELECT * FROM DEPARTMENT", Department.class);
-        departmentList = departments.getResultList();
-        TypedQuery requests = em.createQuery("SELECT R FROM PurchaseRequest R", PurchaseRequest.class);
-        requestList = requests.getResultList();
+    private static void createConnection(){
+        EMF = Persistence.createEntityManagerFactory("InventoryPersistence");
+        em = EMF.createEntityManager();
     }
 }

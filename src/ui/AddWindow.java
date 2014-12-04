@@ -58,9 +58,7 @@ public class AddWindow extends UI {
         itemname_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         itemname_label.setText("Item Name:");
 
-        EntityManager em = Database.EMF.createEntityManager();
-        TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
-        List<Item> itemList = items.getResultList();
+        List<Item> itemList = Database.getItemList();
         itemName_combo.setModel(new javax.swing.DefaultComboBoxModel());
         for(Item i : itemList)
         itemName_combo.addItem(i);
@@ -159,7 +157,6 @@ public class AddWindow extends UI {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         try {
-            // TODO add your handling code here:
             Executor.execute("addItem");
         } catch (ExecutorException ex) {
             Logger.getLogger(AddWindow.class.getName()).log(Level.SEVERE, null, ex);

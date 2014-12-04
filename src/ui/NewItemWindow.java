@@ -103,6 +103,7 @@ public class NewItemWindow extends UI {
         TypedQuery suppliers = em.createQuery("SELECT s FROM Supplier s", Supplier.class);
         List<Supplier> supplierList = suppliers.getResultList();
         supplier_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        supplier_combo.setName("supplier_combo"); // NOI18N
         for(Supplier s : supplierList)
         supplier_combo.addItem(s);
         supplier_combo.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +125,9 @@ public class NewItemWindow extends UI {
         TypedQuery categories = em.createQuery("SELECT c FROM Category c", Category.class);
         List<Category> categoryList = categories.getResultList();
         category_combo.setModel(new javax.swing.DefaultComboBoxModel());
+        category_combo.setName("category_combo"); // NOI18N
         for(Category c : categoryList)
-        category_combo.addItem (c);
+        category_combo.addItem(c);
 
         newCategory_button.setText("New Category...");
         newCategory_button.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +230,6 @@ public class NewItemWindow extends UI {
     }//GEN-LAST:event_save_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 

@@ -171,7 +171,8 @@ public class NewCategoryWindow extends UI {
     public Map getFields() {
         Map fields = new HashMap();
         fields.put(categoryName_field.getName(), categoryName_field);
-        throw new UnsupportedOperationException("FIXME: complete getFields() function."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("FIXME: complete getFields() function."); //To change body of generated methods, choose Tools | Templates.
+        return fields;
     }
 
 

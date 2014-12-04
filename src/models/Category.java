@@ -99,4 +99,9 @@ public class Category extends Commitable implements Serializable {
         this.parentCategory = category;
     }
     
+    @Override
+    public String toString(){
+        return name;
+    }
+    
 }

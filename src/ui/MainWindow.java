@@ -153,8 +153,7 @@ public class MainWindow extends UI {
                 .addGap(20, 20, 20))
         );
 
-        TypedQuery items = em.createQuery("SELECT i FROM Item i", Item.class);
-        List<Item> itemList = items.getResultList();
+        List<Item> itemList = Database.getItemList();
         Object[][] tableContent = new Object[itemList.size()][6];
 
         for(int i=0; i<itemList.size(); i++){
