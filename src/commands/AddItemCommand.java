@@ -35,7 +35,7 @@ public class AddItemCommand extends Command {
         JTextField name = (JTextField) fields.get("name_field");
         JTextArea  description = (JTextArea) fields.get("description_textarea");
         
-        item.setCategory((Category) category.getSelectedItem());
+        item.setCategory((Category)category.getSelectedItem());
         item.setName(name.getText());
         item.setDescription( description.getText());
         item.setSupplier((Supplier)supplier.getSelectedItem());

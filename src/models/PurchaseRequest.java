@@ -6,6 +6,7 @@
 package models;
 
 import base.Commitable;
+import static base.Database.EMF;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +26,11 @@ import javax.persistence.Table;
 @Table(name="PURCHASE_REQUEST")
 public class PurchaseRequest extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    public PurchaseRequest(){
+        em = EMF.createEntityManager();
+        em.getTransaction().begin();
+    }
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

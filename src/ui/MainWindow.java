@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import javax.swing.JFrame;
 import models.Item;
 
@@ -20,10 +19,6 @@ import models.Item;
  * @author MiriamMarie
  */
 public class MainWindow extends UI {
-    JFrame add = new AddWindow();
-    JFrame remove = new RemoveWindow();
-    JFrame request = new RequestWindow();
-    JFrame edit = new EditWindow();
     EntityManager em;
     /**
      * Creates new form MainWindow
@@ -176,7 +171,7 @@ public class MainWindow extends UI {
                 "Last Added Date"
             }
         ));
-        inventory_table.setColumnSelectionAllowed(true);
+        inventory_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         inventory_table.setName("inventory_table"); // NOI18N
         inventory_table.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(inventory_table);
@@ -222,36 +217,26 @@ public class MainWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        // TODO add your handling code here:
-        add.show();
-        
+        new AddWindow().setVisible(true);
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
-        // TODO add your handling code here:
-        edit.show();
+        new EditWindow().setVisible(true);
     }//GEN-LAST:event_edit_buttonActionPerformed
 
     private void remove_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_buttonActionPerformed
-        // TODO add your handling code here:
-        remove.show();
-        
+        new RemoveWindow().setVisible(true);
     }//GEN-LAST:event_remove_buttonActionPerformed
 
     private void request_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_request_buttonActionPerformed
-        // TODO add your handling code here:
-        request.show();
-        
+        new RequestWindow().setVisible(true);        
     }//GEN-LAST:event_request_buttonActionPerformed
 
     private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
-        this.dispose();
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_buttonActionPerformed
-        // TODO add your handling code here:
         String text = search_field.getText();
         
         //Create a performSearch method that searches the item using the variable text

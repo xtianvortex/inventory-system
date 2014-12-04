@@ -6,16 +6,19 @@
 package models;
 
 import base.Commitable;
+import static base.Database.EMF;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Persistence;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +31,11 @@ import javax.persistence.TemporalType;
 @Table(name="ITEM")
 public class Item extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    public Item(){
+        em = EMF.createEntityManager();
+        em.getTransaction().begin();
+    }
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -42,11 +50,11 @@ public class Item extends Commitable implements Serializable {
     @Column(name="QUANTITY")
     private int quantity;
     
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="SUPPLIER")
     private Supplier supplier;
     
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="CATEGORY")
     private Category category;
     
@@ -150,6 +158,14 @@ public class Item extends Commitable implements Serializable {
      */
     public void setCategory(Category category) {
         this.category = category;
+    }
+    
+    public void incQuantity(int quantity){
+        setQuantity(this.quantity+quantity);
+    }
+    
+    public void decQuantity(int quantity){
+        this.quantity -= quantity;
     }
     
     @Override

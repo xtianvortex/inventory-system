@@ -5,7 +5,6 @@
  */
 package ui;
 
-import base.Database;
 import base.UI;
 import statics.Executor;
 import commands.factory.CommandFactory;
@@ -21,13 +20,18 @@ import javax.swing.JFrame;
  * @author MiriamMarie
  */
 public class LoginWindow extends UI {
-    
+    JFrame mainWindow;
     /**
      * Creates new form Login
      */
     public LoginWindow() {
         initComponents();
+        initWindows();
         Executor.put("login", CommandFactory.createLoginCommand(this));
+    }
+    
+    private void initWindows(){
+        mainWindow = new MainWindow();
     }
 
     /**
@@ -152,14 +156,12 @@ public class LoginWindow extends UI {
             return;
         }
         
-        JFrame test = new MainWindow();
-        test.show();
+        mainWindow.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_login_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**
@@ -203,9 +205,9 @@ public class LoginWindow extends UI {
     private javax.swing.JLabel information_label;
     private javax.swing.JButton login_button;
     private javax.swing.JPanel login_panel;
-    public javax.swing.JPasswordField password_field;
+    private javax.swing.JPasswordField password_field;
     private javax.swing.JLabel password_label;
-    public javax.swing.JTextField username_field;
+    private javax.swing.JTextField username_field;
     private javax.swing.JLabel username_label;
     // End of variables declaration//GEN-END:variables
 

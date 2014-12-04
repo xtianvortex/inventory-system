@@ -6,17 +6,15 @@
 package models;
 
 import base.Commitable;
+import static base.Database.EMF;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 /**
  *
@@ -32,6 +30,11 @@ import javax.persistence.Transient;
 @Table(name="MONKEY")
 public class Monkey extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    public Monkey(){
+        em = EMF.createEntityManager();
+        em.getTransaction().begin();
+    }
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

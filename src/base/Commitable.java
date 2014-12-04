@@ -13,23 +13,30 @@ import javax.persistence.EntityManager;
  * @author tan
  */
 public abstract class Commitable {
+    protected EntityManager em;
     
     /**
      * This method commits the object to the database
      */
     public void commit(){
-        EntityManager em = EMF.createEntityManager();
-        em.getTransaction().begin();
         em.persist(this);
         em.getTransaction().commit();
-        em.close();
     }
     
     /**
-     * This method deletes the matching object
+     * This method deletes the object
      * from the database
      */
     public void delete(){
-        // TODO
+        em.remove(this);
+        em.getTransaction().commit();
+    }
+    
+    /**
+     * This method updates the object
+     * from the database
+     */
+    public void update(){
+        em.getTransaction().commit();
     }
 }
