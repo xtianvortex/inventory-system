@@ -14,9 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.swing.JFrame;
 import models.Item;
 import statics.Executor;
 
@@ -25,13 +22,12 @@ import statics.Executor;
  * @author MiriamMarie
  */
 public class AddWindow extends UI {
-    JFrame item = new NewItemWindow();
     /**
      * Creates new form AddItemWindow
      */
     public AddWindow() {
         initComponents();
-        Executor.put("addItem", CommandFactory.createAddItemCommand(this));
+        Executor.put("addQuantity", CommandFactory.createAddQuantityCommand(this));
     }
 
     /**
@@ -151,13 +147,12 @@ public class AddWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newItem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newItem_buttonActionPerformed
-        // TODO add your handling code here:
-        item.show();
+        new NewItemWindow().setVisible(true);
     }//GEN-LAST:event_newItem_buttonActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         try {
-            Executor.execute("addItem");
+            Executor.execute("addQuantity");
         } catch (ExecutorException ex) {
             Logger.getLogger(AddWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -165,7 +160,6 @@ public class AddWindow extends UI {
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 

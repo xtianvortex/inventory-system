@@ -51,8 +51,22 @@ public class CommandFactory {
         return new RemoveItemCommand(ui);
     }
     
+    /**
+     * 
+     * @param ui the UI object to bind this command with.
+     * @return a command to add a category
+     */
     public static Command createAddCategoryCommand(UI ui){
         return new AddCategoryCommand(ui);
+    }
+    
+    /**
+     * 
+     * @param ui the UI object to bind this command with.
+     * @return a command to add quantity to an Item
+     */
+    public static Command createAddQuantityCommand(UI ui){
+        return new AddQuantityCommand(ui);
     }
     
 }

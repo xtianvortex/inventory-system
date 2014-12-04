@@ -6,6 +6,7 @@
 package models;
 
 import base.Commitable;
+import static base.Database.EMF;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,6 +27,11 @@ import javax.persistence.Table;
 @Table(name="CATEGORY")
 public class Category extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    public Category(){
+        em = EMF.createEntityManager();
+        em.getTransaction().begin();
+    }
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
