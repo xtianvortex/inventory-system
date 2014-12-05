@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.EntityManager;
-import javax.swing.JFrame;
 import models.Item;
 
 /**
@@ -25,7 +24,6 @@ public class MainWindow extends UI {
      */
     public MainWindow() {
         initComponents();
-        em = Database.EMF.createEntityManager();
     }
 
     /**
@@ -54,6 +52,12 @@ public class MainWindow extends UI {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inventory System");
         setName("Inventory System"); // NOI18N
+
+        buttons_panel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                buttons_panelFocusGained(evt);
+            }
+        });
 
         search_field.setName("search_field"); // NOI18N
 
@@ -149,17 +153,7 @@ public class MainWindow extends UI {
         );
 
         List<Item> itemList = Database.getItemList();
-        Object[][] tableContent = new Object[itemList.size()][6];
-
-        for(int i=0; i<itemList.size(); i++){
-            Item temp = itemList.get(i);
-            tableContent[i][0] = temp;
-            tableContent[i][1] = temp.getDescription();
-            tableContent[i][2] = String.valueOf(temp.getQuantity());
-            tableContent[i][3] = temp.getCategory();
-            tableContent[i][4] = temp.getSupplier();
-            tableContent[i][5] = temp.getDateLastAdded();
-        }
+        Object[][] tableContent = populateTable(itemList);
         inventory_table.setModel(new javax.swing.table.DefaultTableModel(
             tableContent,
             new String [] {
@@ -172,6 +166,7 @@ public class MainWindow extends UI {
             }
         ));
         inventory_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        inventory_table.setEnabled(false);
         inventory_table.setName("inventory_table"); // NOI18N
         inventory_table.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(inventory_table);
@@ -217,7 +212,8 @@ public class MainWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
-        new AddWindow().setVisible(true);
+        UI addWindow = new AddWindow();
+        addWindow.setVisible(true);
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
@@ -241,6 +237,23 @@ public class MainWindow extends UI {
         
         //Create a performSearch method that searches the item using the variable text
     }//GEN-LAST:event_search_buttonActionPerformed
+
+    private void buttons_panelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buttons_panelFocusGained
+        Database.refreshDatabase();
+        List<Item> itemList = Database.getItemList();
+        Object[][] tableContent = populateTable(itemList);
+        inventory_table.setModel(new javax.swing.table.DefaultTableModel(
+            tableContent,
+            new String [] {
+                "Name",
+                "Description",
+                "Quantity",
+                "Category",
+                "Supplier",
+                "Last Added Date"
+            }
+        ));
+    }//GEN-LAST:event_buttons_panelFocusGained
 
     /**
      * @param args the command line arguments
@@ -298,5 +311,20 @@ public class MainWindow extends UI {
         Map fields = new HashMap();
         fields.put(inventory_table.getName(), inventory_table);
         return fields;
+    }
+    
+    
+    private Object[][] populateTable(List list){
+        Object[][] content = new Object[list.size()][6];
+        for(int i=0; i<list.size(); i++){
+            Item temp = (Item) list.get(i);
+            content[i][0] = temp;
+            content[i][1] = temp.getDescription();
+            content[i][2] = String.valueOf(temp.getQuantity());
+            content[i][3] = temp.getCategory();
+            content[i][4] = temp.getSupplier();
+            content[i][5] = temp.getDateLastAdded();
+        }
+        return content;
     }
 }

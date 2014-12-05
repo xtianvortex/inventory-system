@@ -148,6 +148,7 @@ public class AddWindow extends UI {
 
     private void newItem_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newItem_buttonActionPerformed
         new NewItemWindow().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_newItem_buttonActionPerformed
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
