@@ -27,6 +27,7 @@ public class AddCategoryCommand extends Command {
     public void execute() throws ExecutorException {
         Category newCategory = ModelFactory.createCategory();
         
+        
         JTextField name = (JTextField) fields.get("categoryName_field");
         // TODO
         throw new UnsupportedOperationException("FIXME: complete execute() function");
