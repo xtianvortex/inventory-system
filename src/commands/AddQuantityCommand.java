@@ -6,7 +6,7 @@
 package commands;
 
 import base.Command;
-import base.Database;
+import static base.Database.EMF;
 import base.UI;
 import exceptions.ExecutorException;
 import javax.persistence.EntityManager;
@@ -32,7 +32,7 @@ public class AddQuantityCommand extends Command {
         Item selectedItem = (Item) item.getSelectedItem();
         int selectedQuantity = (int) quantity.getValue();
         
-        selectedItem.setQuantity(selectedQuantity);
+        selectedItem.incQuantity(selectedQuantity);
         selectedItem.update();
     }
     

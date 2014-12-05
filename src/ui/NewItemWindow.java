@@ -227,6 +227,7 @@ public class NewItemWindow extends UI {
             Logger.getLogger(NewItemWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
+        new AddWindow().setVisible(true);
     }//GEN-LAST:event_save_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed

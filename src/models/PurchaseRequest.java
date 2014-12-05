@@ -27,11 +27,6 @@ import javax.persistence.Table;
 public class PurchaseRequest extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    public PurchaseRequest(){
-        em = EMF.createEntityManager();
-        em.getTransaction().begin();
-    }
-    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;

@@ -10,12 +10,18 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import models.PurchaseRequest;
 import models.factory.ModelFactory;
+import base.UI;
 
 /**
  *
  * @author tan
  */
 public class RequestCommand extends Command {
+    
+    public RequestCommand(UI ui){
+        elements = ui;
+        fields = elements.getFields();
+    }
 
     @Override
     public void execute() {
