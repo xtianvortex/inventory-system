@@ -7,8 +7,11 @@ package ui;
 
 import base.UI;
 import commands.factory.CommandFactory;
+import exceptions.ExecutorException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import statics.Executor;
 
 /**
@@ -61,8 +64,18 @@ public class NewCategoryWindow extends UI {
         categoryDescription_scrollpane.setViewportView(categoryDescription_textarea);
 
         save_button.setText("Save");
+        save_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_buttonActionPerformed(evt);
+            }
+        });
 
         cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout category_panelLayout = new javax.swing.GroupLayout(category_panel);
         category_panel.setLayout(category_panelLayout);
@@ -121,6 +134,21 @@ public class NewCategoryWindow extends UI {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void save_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_buttonActionPerformed
+        try {
+            Executor.execute("addNewCategory");
+        } catch (ExecutorException ex) {
+            Logger.getLogger(NewCategoryWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        new AddWindow().setVisible(true);
+    }//GEN-LAST:event_save_buttonActionPerformed
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        this.dispose();
+        new AddWindow().setVisible(true);
+    }//GEN-LAST:event_cancel_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,7 +199,7 @@ public class NewCategoryWindow extends UI {
     public Map getFields() {
         Map fields = new HashMap();
         fields.put(categoryName_field.getName(), categoryName_field);
-        //throw new UnsupportedOperationException("FIXME: complete getFields() function."); //To change body of generated methods, choose Tools | Templates.
+        fields.put(categoryDescription_textarea.getName(), categoryDescription_textarea);
         return fields;
     }
 

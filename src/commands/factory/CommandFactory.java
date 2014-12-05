@@ -69,4 +69,12 @@ public class CommandFactory {
         return new AddQuantityCommand(ui);
     }
     
+    /**
+     * 
+     * @param ui the UI object to bind this command with.
+     * @return a command that creates a request.
+     */
+    public static Command createRequestCommand(UI ui){
+        return new RequestCommand(ui);
+    }
 }

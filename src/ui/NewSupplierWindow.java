@@ -216,11 +216,13 @@ public class NewSupplierWindow extends UI {
         } catch (ExecutorException ex) {
             Logger.getLogger(NewSupplierWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.dispose();
+        new AddWindow().setVisible(true);
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
+        new AddWindow().setVisible(true);
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**

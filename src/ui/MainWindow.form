@@ -41,9 +41,6 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="buttons_panel">
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="buttons_panelFocusGained"/>
-      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

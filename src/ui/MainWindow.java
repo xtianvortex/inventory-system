@@ -53,12 +53,6 @@ public class MainWindow extends UI {
         setTitle("Inventory System");
         setName("Inventory System"); // NOI18N
 
-        buttons_panel.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                buttons_panelFocusGained(evt);
-            }
-        });
-
         search_field.setName("search_field"); // NOI18N
 
         search_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -214,6 +208,7 @@ public class MainWindow extends UI {
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         UI addWindow = new AddWindow();
         addWindow.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void edit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_buttonActionPerformed
@@ -237,23 +232,6 @@ public class MainWindow extends UI {
         
         //Create a performSearch method that searches the item using the variable text
     }//GEN-LAST:event_search_buttonActionPerformed
-
-    private void buttons_panelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buttons_panelFocusGained
-        Database.refreshDatabase();
-        List<Item> itemList = Database.getItemList();
-        Object[][] tableContent = populateTable(itemList);
-        inventory_table.setModel(new javax.swing.table.DefaultTableModel(
-            tableContent,
-            new String [] {
-                "Name",
-                "Description",
-                "Quantity",
-                "Category",
-                "Supplier",
-                "Last Added Date"
-            }
-        ));
-    }//GEN-LAST:event_buttons_panelFocusGained
 
     /**
      * @param args the command line arguments

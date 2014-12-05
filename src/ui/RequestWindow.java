@@ -6,7 +6,10 @@
 package ui;
 
 import base.UI;
+import commands.factory.CommandFactory;
+import java.util.HashMap;
 import java.util.Map;
+import statics.Executor;
 
 /**
  *
@@ -19,6 +22,7 @@ public class RequestWindow extends UI {
      */
     public RequestWindow() {
         initComponents();
+        Executor.put("requestItem", CommandFactory.createRequestCommand(this));
     }
 
     /**
@@ -120,13 +124,13 @@ public class RequestWindow extends UI {
     }// </editor-fold>//GEN-END:initComponents
 
     private void request_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_request_buttonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
+        new MainWindow().setVisible(true);
     }//GEN-LAST:event_request_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
+        new MainWindow().setVisible(true);
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**
@@ -176,6 +180,9 @@ public class RequestWindow extends UI {
 
     @Override
     public Map getFields() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map fields = new HashMap();
+        fields.put(requestItem_combo.getName(), requestItem_combo);
+        fields.put(quantity_spinner.getName(), quantity_spinner);
+        return fields;
     }
 }

@@ -158,6 +158,7 @@ public class AddWindow extends UI {
             Logger.getLogger(AddWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
+        new MainWindow().setVisible(true);
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
