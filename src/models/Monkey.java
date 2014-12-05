@@ -31,11 +31,6 @@ import javax.persistence.Table;
 public class Monkey extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    public Monkey(){
-        em = EMF.createEntityManager();
-        em.getTransaction().begin();
-    }
-    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;

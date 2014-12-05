@@ -28,11 +28,6 @@ import javax.persistence.Table;
 public class Department extends Commitable implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    public Department(){
-        em = EMF.createEntityManager();
-        em.getTransaction().begin();
-    }
-    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
