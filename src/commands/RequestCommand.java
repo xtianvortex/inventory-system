@@ -6,6 +6,10 @@
 package commands;
 
 import base.Command;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import models.PurchaseRequest;
+import models.factory.ModelFactory;
 
 /**
  *
@@ -15,7 +19,10 @@ public class RequestCommand extends Command {
 
     @Override
     public void execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JComboBox item =  (JComboBox) fields.get("requestItem_combo");
+        JSpinner quantity = (JSpinner) fields.get("quantity_spinner");
+        
+        PurchaseRequest request = ModelFactory.createRequest();
     }
     
 }
